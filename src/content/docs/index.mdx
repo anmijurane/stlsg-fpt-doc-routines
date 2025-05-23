@@ -1,0 +1,55 @@
+---
+title: Planet Fitness Routines
+description: Documentacion del proyecto de rutinas de planet fitness
+template: splash
+hero:
+  tagline: Hecho con ❤️ por SITELSEG
+  image:
+    file: ../../assets/pf_logo.webp
+  actions:
+    - text: Ver documentacion
+      link: /discovery
+      icon: right-arrow
+    - text: Changelog Doc
+      link: /changelog/doc-changelog
+      icon: seti:clock
+      variant: secondary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Saber más
+
+<CardGrid stagger>
+	<Card title="Editar documento" icon="pencil">
+		Esta documentación solamente es informativa.
+
+		Para editar, contacte al equipo de SITELSEG
+		[contacto@sitelseg.mx](mailto:contacto@sitelseg.com)
+	</Card>
+	<Card title="Sitio WEB" icon="add-document">
+		Esta es una versión estable, sin embargo no contabiliza a las estadisticas actuales.
+
+		[Ir al sitio](/)
+		> PROXIMAMENTE
+	</Card>
+	<Card title="Encontraste un error" icon="error">
+		Ayudanos a corregirlo.
+
+		[Cuentanos aqui](/)
+		> PROXIMAMENTE
+	</Card>
+	<Card title="Último despliegue" icon="rocket">
+		<Tabs>
+			<TabItem label="Version">0.0.1.release-1.alpha_01</TabItem>
+			<TabItem label="Current MVP">
+				Actualmente se desarrolla el MVP 1
+
+				Módulos 1: Acceso e Identificación de Club
+
+				Módulos 2: Exploración de Rutinas
+			</TabItem>
+		</Tabs>
+	</Card>
+</CardGrid>
