@@ -1,0 +1,36 @@
+---
+title: HU01 - Identificar el club desde el parámetro de la URL.
+sidebar:
+  label: Historia 1
+  badge:
+    text: Nuevo
+    variant: tip
+lastUpdated: 2025-05-23
+prev: false
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+**como** plataforma,
+
+**debo** detectar el club de origen mediante un parámetro en la URL,
+
+**para** contextualizar el acceso y las métricas asociadas.
+
+## Criterios de aceptación
+
+  - El sistema debe leer el parámetro club desde la URL al cargar la plataforma.
+  - El valor debe almacenarse en una cookie o sessionStorage para usarse durante toda la sesión.
+  - Si el parametro no existe o no corresponde con el registro de alguna sede, debe redirigir al sitio web [Planet Fitness | Un gimnasio y un club de fitness para todos](https://www.planetfitness.mx/)
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Done" variant="success" />       | Se entrega refinamiento: 2025-05-23 |
+| Bussines     | <Badge text="Revisión" variant="note" />      |                                     |
+| Design       | <Badge text="N/A" variant="success" />        |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
+
