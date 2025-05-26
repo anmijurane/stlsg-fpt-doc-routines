@@ -17,6 +17,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
     ? new Response(null, { status: 204 })
     : await next();
 
+  console.log({ origin });
+
   if (origin && allowedOrigins.includes(origin)) {
     response.headers.set('Access-Control-Allow-Origin', origin);
     response.headers.set('Access-Control-Allow-Credentials', 'true');
