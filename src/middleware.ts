@@ -55,23 +55,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const isAuthenticated = !!sessionToken; // Tu forma de determinar si está autenticado
 
   // --- 3. Manejo de Solicitudes de Action Reales (ej. POST) ---
-  if (isActionRoute) { // Ya no será OPTIONS porque se manejó arriba
-    if (!isAuthenticated) {
-      console.log(`Action ${pathname} DENIED for unauthenticated user.`);
-      // Si la action requiere autenticación, devuelve un error ANTES de ejecutar `next()`.
-      const errorResponse = new Response('Authentication required for action.', { status: 401 });
-      // Incluso las respuestas de error pueden necesitar cabeceras CORS para que el cliente las lea.
-      if (isOriginAllowedForAction) {
-        errorResponse.headers.set('Access-Control-Allow-Origin', requestOrigin);
-        if (CORS_ACTION_ALLOW_CREDENTIALS === 'true') {
-          errorResponse.headers.set('Access-Control-Allow-Credentials', CORS_ACTION_ALLOW_CREDENTIALS);
-        }
-        errorResponse.headers.append('Vary', 'Origin');
-      }
-      return errorResponse;
-    }
+  if (isActionRoute) {
 
-    // Usuario autenticado, ejecuta la action.
     console.log(`Executing action ${pathname} for authenticated user from ${requestOrigin}.`);
     const actionResponse = await next(); // Llama al handler de la Action
 

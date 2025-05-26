@@ -87,25 +87,25 @@ import MainLayout from "../../layout/main.layout.astro";
       const formulary = new FormData(form);
       try {
         btnSubmit.setAttribute("disabled", "disabled");
-        const response = await fetch(
-          "https://fpt-routines.sitelseg.mx/_actions/AuthLogin/",
-          {
-            method: "POST",
-            body: formulary,
-            headers: {
-              "Access-Control-Allow-Origin":
-                "https://fpt-routines.sitelseg.mx/",
-              "Access-Control-Allow-Methods": "POST, OPTIONS",
-              "Access-Control-Allow-Headers":
-                "Content-Type, Authorization, X-CSRF-Token",
-              "Access-Control-Allow-Credentials": "true",
-              "Access-Control-Max-Age": "86400",
-              Vary: "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
-            },
-          },
-        );
-        const resolve = await response.json();
-        // const resolve = await actions.AuthLogin(formulary);
+        // const response = await fetch(
+        //   "https://fpt-routines.sitelseg.mx/_actions/AuthLogin/",
+        //   {
+        //     method: "POST",
+        //     body: formulary,
+        //     headers: {
+        //       "Access-Control-Allow-Origin":
+        //         "https://fpt-routines.sitelseg.mx/",
+        //       "Access-Control-Allow-Methods": "POST, OPTIONS",
+        //       "Access-Control-Allow-Headers":
+        //         "Content-Type, Authorization, X-CSRF-Token",
+        //       "Access-Control-Allow-Credentials": "true",
+        //       "Access-Control-Max-Age": "86400",
+        //       Vary: "Origin, Access-Control-Request-Method, Access-Control-Request-Headers",
+        //     },
+        //   },
+        // );
+        // const resolve = await response.json();
+        const resolve = await actions.AuthLogin(formulary);
         console.log(resolve);
         if (!resolve.data) {
           throw new Error("error!");
