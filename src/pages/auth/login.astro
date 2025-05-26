@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets';
 import '../../styles/global.css';
-import logoStlsg from '../../assets/stlsg_logo.png';
 import { AuthLogin } from '../../actions/auth/login.action'
 
 import MainLayout from '../../layout/main.layout.astro';
@@ -10,7 +8,7 @@ import MainLayout from '../../layout/main.layout.astro';
 <MainLayout title='Login'>
 <section class="w-full h-screen flex justify-center items-center">
   <div class="flex h-fit justify-center items-center flex-col gap-8 border border-blue-900 shadow-sm px-8 py-12 rounded-xl bg-contrast-card">
-    <Image src={logoStlsg} alt="sitelseg logo" width={150} />
+    <img src="/stlsg_logo.png" alt="logo sitelseg" width="150">
     <h1 class="text-5xl text-center">Iniciar Sesion</h1>
 
     <form id="loginForm" class="w-full flex flex-col gap-6" action={AuthLogin} method="post">

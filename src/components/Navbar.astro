@@ -1,13 +1,10 @@
 ---
-import { Image } from "astro:assets";
-import pf_logo from '../assets/pf_logo.webp';
-
 ---
 
 <header>
   <div class="flex h-full justify-start">
     <div class="flex items-center site-title gap-4">
-      <Image src={pf_logo} alt="Planet Fitness Logo" class="w-12" />
+      <img src="/pf_logo.webp" alt="Planet Fitness Logo" width={48} />
       <span>Planet Fitness</span>
     </div>
   </div>
@@ -22,7 +19,7 @@ import pf_logo from '../assets/pf_logo.webp';
     width: 100%;
     height: 3.5rem;
     border-bottom: 1px solid var(--sl-color-black);
-    padding: .75rem 1rem;
+    padding: 0.75rem 1rem;
     padding-inline-end: 1rem;
     background-color: var(--sl-color-gray-6);
     color: var(--sl-color-accent);
@@ -30,7 +27,7 @@ import pf_logo from '../assets/pf_logo.webp';
     font-weight: 600;
   }
   img {
-    height: calc(3.5rem - 2 * .75rem);
+    height: calc(3.5rem - 2 * 0.75rem);
     width: auto;
     max-width: 100%;
     object-fit: contain;
