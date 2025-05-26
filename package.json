@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "inspect": "NODE_OPTIONS='--inspect' astro dev",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -10,8 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.2.2",
     "@astrojs/starlight": "^0.34.3",
+    "@tailwindcss/vite": "^4.1.7",
     "astro": "^5.6.1",
-    "sharp": "^0.32.5"
+    "bcrypt": "^6.0.0",
+    "sharp": "^0.32.5",
+    "sweetalert2": "^11.21.2",
+    "tailwindcss": "^4.1.7"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2"
   }
 }
