@@ -5,7 +5,7 @@ const allowedOrigins = [ // Tus orígenes permitidos
   'http://localhost:4321',
   'https://rpt-routines.sitelseg.mx'
 ];
-const ACTION_ROUTES_PREFIX = '/actions/'; // Prefijo para tus actions
+const ACTION_ROUTES_PREFIX = '/_actions/'; // Prefijo para tus actions
 
 // Constantes para la configuración CORS de las Actions
 const CORS_ACTION_ALLOWED_METHODS = 'POST, OPTIONS';
