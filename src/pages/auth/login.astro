@@ -1,0 +1,116 @@
+---
+import { Image } from 'astro:assets';
+import '../../styles/global.css';
+import logoStlsg from '../../assets/stlsg_logo.png';
+import { AuthLogin } from '../../actions/auth/login.action'
+
+import MainLayout from '../../layout/main.layout.astro';
+
+---
+<MainLayout title='Login'>
+<section class="w-full h-screen flex justify-center items-center">
+  <div class="flex h-fit justify-center items-center flex-col gap-8 border border-blue-900 shadow-sm px-8 py-12 rounded-xl bg-contrast-card">
+    <Image src={logoStlsg} alt="sitelseg logo" width={150} />
+    <h1 class="text-5xl text-center">Iniciar Sesion</h1>
+
+    <form id="loginForm" class="w-full flex flex-col gap-6" action={AuthLogin} method="post">
+      <div class="flex flex-col gap-2">
+        <label for="username" class="text-md font-medium">
+          Ingresa el usuario
+        </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="bg-green-50 border border-blue-500 text-blue-900 dark:text-blue-400 placeholder-blue-700 dark:placeholder-blue-400 dark:bg-gray-700 text-sm rounded-lg block w-full p-2.5"
+          placeholder="Ej. fpt-user1"
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label for="password" class="text-md font-medium">
+          Ingresa la contraseña
+        </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="bg-green-50 border border-blue-500 text-blue-900 dark:text-blue-400 placeholder-blue-700 dark:placeholder-blue-400 dark:bg-gray-700 text-sm rounded-lg block w-full p-2.5"
+          placeholder=""
+        />
+      </div>
+      <label for="rememberMe">
+        <input type="checkbox" name="rememberMe" id="rememberMe">
+        <span>Recordarme (por 5 días)</span>
+      </label>
+      <div class="flex justify-center items-center mt-4">
+        <button
+          id="btn_login"
+          class="bg-blue-500 px-4 py-2 rounded-md w-1/2 cursor-pointer"
+        >
+          Iniciar Sesion
+        </button>
+      </div>
+    </form>
+    <span class="text-gray-400">SITELSEG © 2025</span>
+  </div>
+</section>
+</MainLayout>
+
+<script>
+  import { actions } from 'astro:actions';
+  import { navigate } from 'astro:transitions/client';
+  import Swal from 'sweetalert2';
+  const __init__ = () => {
+    const form = document.querySelector<HTMLFormElement>('#loginForm');
+    if (!form) return;
+    const btnSubmit = form.querySelector<HTMLButtonElement>('#btn_login');
+    if (!btnSubmit) return;
+    
+    form.addEventListener('submit', async (e) => {
+      const toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          customClass: {
+            popup: 'colored-toast',
+          },
+          theme: 'dark',
+          showConfirmButton: false,
+          timer: 2500,
+          timerProgressBar: true,
+        })
+      e.preventDefault();
+      const formulary = new FormData(form);
+      try {
+        btnSubmit.setAttribute('disabled', 'disabled');
+        const resolve = await actions.AuthLogin(formulary);
+        console.log(resolve);
+        if (!resolve.data) {
+          throw new Error("error!");
+        }
+        toast.fire({
+          title: 'Acceso concedido',
+          text: 'Redirigiendo...',
+          icon: 'info',
+          confirmButtonText: 'Cool',
+        })
+        setTimeout(() => {
+          navigate('/');
+        }, 2300);
+        return;
+      } catch (error) {
+        console.log(error)
+        toast.fire({
+          title: 'Credennciales invalidas',
+          text: 'Verifique la información',
+          icon: 'error',
+          confirmButtonText: 'Cool',
+        })
+      } finally {
+        btnSubmit.removeAttribute('disabled');
+      }
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', __init__)
+
+</script>
