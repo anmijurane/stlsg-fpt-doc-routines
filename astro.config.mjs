@@ -7,6 +7,7 @@ import node from '@astrojs/node';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  site: 'https://fpt-routines.sitelseg.mx/',
   adapter: node({
     mode: 'standalone',
   }),
