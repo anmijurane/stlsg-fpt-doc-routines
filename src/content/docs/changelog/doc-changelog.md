@@ -14,6 +14,11 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.7.0@latest] - 2025-05-28
+
+## 🛠️ Mod
+* Se da el Vo.Bo, por parte del equipo de negocio para el Módulo 1 (Epic 1)
+* Se clarifica en la HU3 del módulo 2 (Epic 2), las clases no se contabilizan en el total de días.
 
 ## 🚀 [0.6.0@latest] - 2025-05-23
 
