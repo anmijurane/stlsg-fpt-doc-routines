@@ -9,7 +9,7 @@ export const AuthLogin = defineAction({
     password: z.string().min(3),
     rememberMe: z.boolean().optional(),
   }),
-  handler: async ({ password, username, rememberMe }, { cookies, rewrite }) => {
+  handler: async ({ password, username, rememberMe }, { cookies }) => {
     const { isValid, user } = await checkCredentials(username, password);
     if (!isValid) {
       cookies.delete('session_token');
