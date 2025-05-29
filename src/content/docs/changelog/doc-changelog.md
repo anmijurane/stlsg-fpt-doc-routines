@@ -14,6 +14,12 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.9.0@latest] - 2025-05-29
+
+## ✨ Added
+* Se agrega apartado de diseño para la categoria de rutinas.
+* Se agrega los modulos de diseño (Por trabajar).
+
 ## 🚀 [0.8.0@latest] - 2025-05-29
 
 ## ✨ Added
