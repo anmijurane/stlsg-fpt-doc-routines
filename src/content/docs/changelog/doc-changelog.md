@@ -14,6 +14,14 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.8.0@latest] - 2025-05-29
+
+## ✨ Added
+* Se agrega el Roadmap con fechas comprometidas.
+
+## 🛠️ Mod
+* Se da seguimiento al estatus de las HU
+
 ## 🚀 [0.7.0@latest] - 2025-05-28
 
 ## 🛠️ Mod
