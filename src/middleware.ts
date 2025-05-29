@@ -1,3 +1,4 @@
+import { getEntry } from 'astro:content';
 import { defineMiddleware } from 'astro:middleware';
 
 const PUBLIC_ROUTES = ['/auth/login']; // Tus rutas públicas
@@ -50,30 +51,24 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
   }
 
-  // --- 2. Lógica de Autenticación (basada en tu implementación) ---
   const sessionToken = cookies.get('session_token')?.value;
-  const isAuthenticated = !!sessionToken; // Tu forma de determinar si está autenticado
+  console.log(`Logged with :: ${sessionToken} ::`);
+  const isAuthenticated = !!sessionToken;
 
-  // --- 3. Manejo de Solicitudes de Action Reales (ej. POST) ---
   if (isActionRoute) {
 
-    console.log(`Executing action ${pathname} for authenticated user from ${requestOrigin}.`);
-    const actionResponse = await next(); // Llama al handler de la Action
+    const actionResponse = await next();
 
-    // Añade cabeceras CORS a la respuesta de la Action.
     if (isOriginAllowedForAction) {
-      console.log(`Adding CORS headers to action response for ${pathname}.`);
       actionResponse.headers.set('Access-Control-Allow-Origin', requestOrigin);
       if (CORS_ACTION_ALLOW_CREDENTIALS === 'true') {
         actionResponse.headers.set('Access-Control-Allow-Credentials', CORS_ACTION_ALLOW_CREDENTIALS);
       }
       actionResponse.headers.append('Vary', 'Origin');
-      // Si tu frontend necesita leer cabeceras de respuesta personalizadas, usa 'Access-Control-Expose-Headers'.
     }
     return actionResponse;
   }
 
-  // --- 4. Manejo de Rutas de Páginas Normales (No Actions) ---
   const isPublicRoute = PUBLIC_ROUTES.some(route => pathname.startsWith(route));
 
   if (isAuthenticated && isPublicRoute) {
@@ -81,6 +76,20 @@ export const onRequest = defineMiddleware(async (context, next) => {
     // Tu lógica original parecía redirigir a '/', lo cual es común para la página de login.
     console.log(`Authenticated user on public route ${pathname}. Redirecting to '/'.`);
     return redirect('/');
+  }
+
+  if (isAuthenticated) {
+    try {
+      const slug = pathname.replace(/^\/|\/$/g, '');
+      const entry = await getEntry('docs', slug);
+      console.log(entry?.data);
+      const role = sessionToken?.split('.')[2];
+      if (entry && entry?.data.isPrivate && role !== '465') {
+        return redirect('/config/401-unauthorized');
+      }
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   if (!isAuthenticated && !isPublicRoute) {
@@ -95,5 +104,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
   const pageResponse = await next(); // Carga la página solicitada.
   // Aquí no se añaden cabeceras CORS globales a las páginas, asumiendo que no las necesitan
   // o se sirven desde el mismo origen. Si también necesitas CORS para páginas, esa lógica iría aquí.
+  console.log('==========')
   return pageResponse;
 });
