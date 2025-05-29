@@ -56,6 +56,18 @@ export default defineConfig({
         {
           label: 'Planeacion',
           autogenerate: { directory: 'planning' },
+          collapsed: true
+        },
+        {
+          label: 'Diseño',
+          items: [
+            { label: 'Categorias de rutinas', autogenerate: { directory: 'design/routines-category' }, collapsed: true },
+            { label: 'Disclamer', autogenerate: { directory: 'design/disclamer' }, collapsed: true },
+            { label: 'Nivel de rutina', autogenerate: { directory: 'design/routine-level' }, collapsed: true },
+            { label: 'Detalle del ejercicio', autogenerate: { directory: 'design/exercise-detail' }, collapsed: true },
+            { label: 'Video ejecución', autogenerate: { directory: 'design/video-exercise' }, collapsed: true },
+          ],
+          collapsed: true
         },
       ],
       customCss: ['./src/styles/theme.css'],
