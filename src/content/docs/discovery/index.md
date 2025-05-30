@@ -60,7 +60,7 @@ El sistema abarcará las siguientes funcionalidades clave:
     - Secciones o rutinas más vistas.
     - Feedback con emojis (feliz, neutral, triste) y comentario opcional.
     - Registro de omisión del feedback (rechazo).
-  - Presentación aleatoria del módulo tras cierto tiempo de navegación.
+  - Presentación de feedback aleatoria del módulo tras cierto tiempo de navegación.
 
 ## Limitantes
 
@@ -74,6 +74,7 @@ El sistema abarcará las siguientes funcionalidades clave:
   - Sin conexión con apps de salud, CRMs, ERPs o plataformas deportivas.
 5. Compra de membresías o pagos en línea.
   - No se contempla e-commerce.
+6. No esta diseñado para equipos de escritorio, se puede usar pero su visualización y funcionamiento será igual que para mobiles.
 
 ## Stakeholders Clave:
 
