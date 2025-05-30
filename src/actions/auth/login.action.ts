@@ -1,4 +1,4 @@
-import { defineAction } from "astro:actions";
+import { ActionError, defineAction } from "astro:actions";
 import { z } from "astro:schema";
 import { checkCredentials } from "../../db/verify";
 
@@ -9,11 +9,11 @@ export const AuthLogin = defineAction({
     password: z.string().min(3),
     rememberMe: z.boolean().optional(),
   }),
-  handler: async ({ password, username, rememberMe }, { cookies, rewrite }) => {
+  handler: async ({ password, username, rememberMe }, { cookies }) => {
     const { isValid, user } = await checkCredentials(username, password);
     if (!isValid) {
       cookies.delete('session_token');
-      throw new Error("INVALID");
+      return new ActionError({ code: 'UNAUTHORIZED', message: 'NO Autorizado' })
     } else {
       const now = new Date().getTime();
       const token = `t.${now}.${user?.role}`;
