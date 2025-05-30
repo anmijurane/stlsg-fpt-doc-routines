@@ -14,6 +14,11 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.9.1@latest] - 2025-05-29
+
+## ✨ Mod
+* Se agrega el VoBo del modulo 2
+
 ## 🚀 [0.9.0@latest] - 2025-05-29
 
 ## ✨ Added
