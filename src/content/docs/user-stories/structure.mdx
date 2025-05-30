@@ -14,7 +14,7 @@ next:
 import { Badge } from '@astrojs/starlight/components';
 
 
-# Vista General
+# Vista a alto nivel
 
 | Nº | Módulo                           | Descripción breve                                            | HU Totales | Proceso                                      |
 | -- | -------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------- |
@@ -26,3 +26,71 @@ import { Badge } from '@astrojs/starlight/components';
 | 6  | **Reproducción de Video**        | Video guía del ejercicio y mensaje de apoyo                  | **3 HU**   | <Badge text="BACKLOG" variant="caution" />   |
 | 7  | **Retroalimentación y Métricas** | Feedback del usuario + métricas de uso                       | **9 HU**   | <Badge text="BACKLOG" variant="caution" />   |
 | 8  | **Progreso Local**               | Gestión de checks en ejercicios (almacenado en localStorage) | **4 HU**   | <Badge text="BACKLOG" variant="caution" />   |
+
+# Listado de Módulos y Historias de Usuario
+
+## Módulo 1: Identificación de Club
+- **HU 1** - Identificar el club desde el parámetro de la URL  
+- **HU 2** - Registrar el acceso al sistema  
+- **HU 3** - Mantener la identificación del club durante la sesión  
+- **HU 4** - Redirigir automáticamente al home sin mostrar vista intermedia  
+
+---
+
+## Módulo 2: Exploración de Rutinas
+- **HU 1** - Visualizar categorías disponibles  
+- **HU 2** - Expandir una categoría para ver sus niveles  
+- **HU 3** - Ver información de cada nivel  
+- **HU 4** - Acceder a la rutina de un nivel  
+
+---
+
+## Módulo 3: Pantalla Informativa
+- **HU 1** - Ver mensaje informativo antes de iniciar la rutina  
+- **HU 2** - Ver un aviso de seguridad o disclaimer  
+- **HU 3** - Iniciar la rutina desde la pantalla informativa  
+
+---
+
+## Módulo 4: Vista de Rutina
+- **HU 1** - Ver la rutina correspondiente a mi selección  
+- **HU 2** - Visualizar la rutina organizada por días  
+- **HU 3** - Ver los ejercicios de un día específico  
+- **HU 4** - Marcar ejercicios como realizados desde la vista de rutina  
+- **HU 5** - Navegar al detalle de un ejercicio  
+
+---
+
+## Módulo 5: Detalle del Ejercicio
+- **HU 1** - Ver el detalle completo del ejercicio  
+- **HU 2** - Marcar el ejercicio como realizado  
+- **HU 3** - Ver un video instructivo del ejercicio  
+- **HU 4** - Volver a la rutina sin perder el estado  
+
+---
+
+## Módulo 6: Reproducción de Video
+- **HU 1** - Ver un video instructivo del ejercicio  
+- **HU 2** - Cerrar el video fácilmente  
+- **HU 3** - Ver mensaje de apoyo o instrucción adicional  
+
+---
+
+## Módulo 7: Retroalimentación y Métricas
+- **HU 1** - Recibir una solicitud de retroalimentación de forma aleatoria  
+- **HU 2** - Enviar una calificación rápida usando emojis  
+- **HU 3** - Agregar un comentario opcional  
+- **HU 4** - Rechazar o ignorar la solicitud de feedback  
+- **HU 5** - Registrar accesos por día  
+- **HU 6** - Medir tiempo promedio de navegación  
+- **HU 7** - Contabilizar accesos por hora del día  
+- **HU 8** - Identificar secciones o rutinas más visitadas  
+- **HU 9** - Almacenar calificaciones de secciones o rutinas  
+
+---
+
+## Módulo 8: Progreso Local
+- **HU 1** - Marcar un ejercicio como realizado  
+- **HU 2** - Consultar si un ejercicio ya fue hecho  
+- **HU 3** - Sincronizar el estado entre pantallas  
+- **HU 4** - Reiniciar progreso local  
