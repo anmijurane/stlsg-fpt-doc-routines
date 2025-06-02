@@ -14,9 +14,14 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.10.0@latest] - 2025-06-02
+
+## ✨ Add
+* Se agrega el planning 2 "Ahora si viene lo bueno"
+
 ## 🚀 [0.9.1@latest] - 2025-05-29
 
-## ✨ Mod
+## 🛠️ Mod
 * Se agrega el VoBo del modulo 2
 
 ## 🚀 [0.9.0@latest] - 2025-05-29

@@ -4,9 +4,8 @@ lastUpdated: 2025-05-30
 sidebar:
   label: Planeación
   badge:
-    text: Backlog
-    variant: caution
-isPrivate: true
+    text: Nuevo
+    variant: success
 ---
 
 # Sprint 2 - "Ahora si viene lo bueno"
@@ -27,7 +26,7 @@ nueva expedición: levantar los requerimientos específicos, formular las histor
 visualmente los siguientes dos módulos del mapa:
 
 	-	Módulo 3 - Pantalla Informativa
-	-	Módulo 4 - Adaptación de Rutinas
+	-	Módulo 4 - Visualización de Rutinas
 
 Este sprint será clave para avanzar en paralelo en implementación y definición, asegurando que la siguiente fase de desarrollo inicie sin bloqueos.
 
@@ -92,23 +91,66 @@ y definición avanzando de forma equilibrada.
 
 ## 🚧 Riesgos / Bloqueos
 
-	- Imagenes del cuerpo a trabajar no se han Entregado
-	- Correcta definición de las repeticiones en discrepancia en el excel
+| Riesgo                                                              | Responsable | Date Line     |
+|---------------------------------------------------------------------|-------------|---------------|
+| Imagenes del cuerpo a trabajar no se han Entregado                  | `@FPT`      | 17/junio/2025 |
+| Correcta definición de las repeticiones en discrepancia en el excel | `@FPT`      | 06/junio/2025 |
 
 ---
 
 ## ✔️ Criterios de Aceptación (DoD)
 
-	-	Se habrá definido y documentado la metodología de trabajo del equipo.
-	-	Se habrán establecido las herramientas oficiales de diseño, desarrollo y seguimiento.
-	-	Las historias de usuario para los Módulos 1 y 2 estarán completamente documentadas y aprobadas por el cliente.
-	-	Se habrá recibido y registrado la retroalimentación del cliente sobre dichas historias.
-	-	El diseño visual del Módulo 2 estará finalizado, validado internamente y listo para presentación.
-	-	Se dejará documentado el flujo propuesto para el Módulo 2, tanto a nivel visual como funcional.
-	-	El equipo realizará una retrospectiva para revisar aprendizajes y oportunidades de mejora.
+_Aplicable a: Módulo 1 (Acceso e identificación de Club) y Módulo 2 (Exploración de Rutinas)_
+
+Una tarea del equipo de desarrollo se considera **terminada** cuando:
+
+	- [ ] Las funcionalidades descritas en las historias de usuario están implementadas completamente.
+	- [ ] El módulo detecta correctamente el club desde la URL (QR) y lo conserva durante la sesión.
+	- [ ] Se registra el acceso del usuario (con club, fecha y sesión) en el backend o sistema de métricas.
+	- [ ] La exploración de rutinas permite expandir categorías, visualizar niveles.
+	- [ ] El estado de expansión de categorías está controlado (solo una a la vez).
+	- [ ] El diseño implementado respeta las especificaciones del prototipo aprobado.
+	- [ ] Funciona correctamente en mobile (Desktop, descartado).
+	- [ ] Las pruebas básicas manuales se completaron (interacción, navegación, regresos).
+	- [ ] El módulo está integrado y desplegado para validación funcional en ambiente de staging o demo.
+
+_Aplicable a: Módulo 3 (Pantalla Informativa) y Módulo 4 (Visualización de Rutina)_
+
+La fase de descubrimiento y diseño se considera **completa** cuando:
+
+	- [ ] Se levantaron los requerimientos funcionales y visuales de producto.
+	- [ ] Se definieron los criterios de aceptación para cada historia de usuario.
+	- [ ] Las historias de usuario están redactadas y validadas por el equipo.
+	- [ ] Se aclararon comportamientos clave como: obligatoriedad del disclaimer, comportamiento del botón "Iniciar", interacción con los días y ejercicios, etc.
+	- [ ] El diseño visual de las pantallas está completado, presentado y aprobado.
+	- [ ] Los componentes visuales están documentados o listos para trasladarse a código.
+
+_Aplicable a: Módulos 1 y 2_
+
+El despliegue del MVP se considera **completo** cuando:
+
+	- [ ] El entorno de staging está disponible y accesible con los módulos 1 y 2 funcionando.
+	- [ ] El QR puede ser escaneado y redirige correctamente a la plataforma con parámetro de club.
+	- [ ] Se puede navegar desde el home hasta la selección de nivel sin errores.
+	- [ ] La plataforma es usable en móvil (principal dispositivo de acceso esperado).
+	- [ ] Se realiza al menos una demo funcional con stakeholders internos.
+	- [ ] Se registra la retroalimentación recibida y se da seguimiento en backlog.
 
 ---
 
 ## ✅ Compromisos del Sprint
 
+_Equipo de Desarrollo_
+
+| # | Compomiso                                                                                           | Responsable |
+| - |-----------------------------------------------------------------------------------------------------|-------------|
+| 1 | Implementar el Módulo 1 - Identificación de Club                                              			| `@STLSG` |
+| 2 | Implementar el Módulo 2 - Exploración de Rutinas                                              			| `@STLSG` |
+| 3 | Preparar el entorno de staging para el MVP 1                                                  			| `@STLSG` |
+| 4 | Levantar requerimientos detallados de los módulos 3 y 4                                       			| `@STLSG` |
+| 5 | Formular historias de usuario para los módulos 3 y 4                                          			| `@STLSG` |
+| 6 | Diseñar visualmente los módulos 3 y 4                                                         			| `@STLSG` |
+| 7 | Demo interna del MVP 1                                                                        			| `@STLSG` |
+| 8 | Imagenes de las parte del cuerpo en formato png/svg                                           			| `@FPT`   |
+| 9 | Refinamiento de la información de las rutinas <br/> (Series, repeticiones y correcciones de nombre) | `@FPT`   |
 

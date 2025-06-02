@@ -1,0 +1,91 @@
+---
+title: Entrevista para modulos 3 y 4
+prev: false
+next: false
+isPrivate: true
+draft: true
+---
+
+Recoger decisiones clave sobre contenido, comportamiento, datos, estilo visual y
+restricciones de la pantalla informativa (antes de comenzar una rutina) y la vista
+de rutina (días, ejercicios, interacción).
+
+## Módulo 3: Pantalla informativa
+
+### Contenido
+  1. ¿Cuál debe ser el mensaje de introducción al usuario?
+    - De acuerdo a la rutina seccionada por el usuario, el mensaje es personalizado por categoría.
+  2. ¿Qué tono debe tener el mensaje?
+    - Amigable, Formal, Técnico, Legal
+    - Se identifican los textos tanto para Disclaimer para las categorías establecidas.
+  3. ¿El texto varía por club o es estándar para todos?
+    - No, son los mismos para todos los clubs
+
+### Disclaimer
+  4. ¿Ya tienen aprobado el texto del aviso de seguridad/legal?
+    - Si, esta aprobado.
+
+  5. ¿Quién lo valida (equipo legal, médico, administrativo)?
+    - El equipo legal
+
+  6. ¿Debe ser obligatorio leerlo para continuar?
+    - Si, es obligatorio y debe ser entendido por el usuario.
+
+
+### Navegación
+  7. ¿El botón “Iniciar” debe generar un registro o métrica?
+    - Si, se genera un registro para métricas de uso.
+  8. ¿Qué pasa si el usuario intenta retroceder o cerrar antes de iniciar?
+    - Cancelar, retroceder a la pantalla de categoría
+    - Aceptar el Disclaimer.
+
+### Visual
+  9. ¿Qué elementos visuales debe contener?
+    - Ícono de advertencia
+    - Ilustración
+    - Colores institucionales
+    - Fondo opaco/transparente
+    - Scroll de comportamiento
+
+## Módulo 4: Visualización de rutina
+
+### Estructura general
+  1. ¿Cuántos días debe tener una rutina como máximo?
+    - 4 dias
+  2. ¿Cada categoría y nivel tiene una rutina única por días?
+    - Si
+  3. ¿La rutina por día es siempre fija o puede rotar/variar?
+    - Si, no cambian entre rutinas pero el usuario si puede cambiar el dia y elegir otra categoría o nivel y si cambia.
+
+### Ejercicios por dias.
+  4. ¿Cuál es la información mínima que debe mostrar cada ejercicio?
+    - Nombre
+    - Imagen del músculo
+    - Series / Reps
+    - Estado (check)
+    - Acceso a detalle
+    - Zona del ejercicio
+  5. ¿Se permite que un mismo ejercicio aparezca en más de un día?
+    - No en el mismo dia, pero si pueden llegar a repetir por nivel o categoría.
+
+### Interacción
+  6. ¿Qué pasa si el usuario marca todos los ejercicios como hechos? ¿Se muestra algún mensaje o no?
+    - [PENDIENTE POR UX]
+  7. ¿Puede desmarcar ejercicios?
+    - Si, el usuario puede desmarcar y volver a marcar.
+  8. ¿Los cambios se deben ver reflejados sin recargar?
+    - El cambio del check cuando completa el ejercicio.
+    - Al clic del chevron, puede collapsarse o expandir la rutina.
+
+### Comportamiento de expansión
+  9. ¿Se pueden expandir varios días a la vez o solo uno?
+    - Solo uno puede ser expandido.
+  10. ¿Debemos guardar el estado expandido al navegar entre pantallas?
+    - Si, se debe guardar el estado.
+
+### Visual
+  11. ¿Qué estilos deben diferenciar un ejercicio hecho de uno pendiente?
+    - [PENDIENTE] DEFINIR COLORES Y PROPUESTAS DE UX/UI
+  12. ¿Se requiere mostrar barra de progreso por día?
+    - Si, debe mostrar el diseño
+
