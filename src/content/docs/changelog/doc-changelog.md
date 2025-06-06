@@ -14,6 +14,11 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.11.0@latest] - 2025-06-05
+
+## ✨ Add
+* Se agrega las historias de usuario para los modulos 3 y 4
+
 ## 🚀 [0.10.0@latest] - 2025-06-02
 
 ## ✨ Add
