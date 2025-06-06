@@ -6,10 +6,56 @@ title: Visualizar la rutina organizada por dias.
 sidebar:
   label: Historia 2
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-draft: true
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-06-05
 ---
+import { Badge } from '@astrojs/starlight/components';
 
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** que la rutina esté dividida por días,
+
+**para** seguir un orden estructurado en mis entrenamientos.
+
+### Criterios de aceptación:
+
+  - Se deben mostrar tarjetas para Día 1, Día 2, Día 3 y Día 4.
+  - Cada tarjeta debe tener un chevron para desplegar o colapsar sus ejercicios.
+  - Cada tarjeta debe tener el titulo del ejericio a realizar.
+  - Las tarjetas están colapsadas por defecto al ingresar a la vista.
+
+-----
+
+## Escenario _"Tarjeta de descanso"_
+> DUDA:
+>
+> ¿Qué pasa si el usuario ya esta en el club?
+>
+> ¿Que indicaciones tiene el usuario?
+
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** visualizar si un día es de descanso,
+
+**para** ...
+
+  ### Criterios de aceptación
+  - Mostrar el número día, seguido de la leyenda _"Descanso"_.
+  - La tarjeta no debe tener un chevron y no debe expandirse.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios               |
+|--------------|-----------------------------------------------|------------------------------------   |
+| BA           | <Badge text="Con duda" variant="danger" />    |Ver el escenario "Tarjeta de descanso" |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                       |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                       |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                       |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                       |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                       |
 

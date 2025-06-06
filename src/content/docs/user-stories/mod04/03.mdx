@@ -6,11 +6,115 @@ title: Ver los ejercicios de un día especifico.
 sidebar:
   label: Historia 3
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-draft: true
-
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-06-05
 ---
+import { Badge } from '@astrojs/starlight/components';
+
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** expandir un día y ver su lista de ejercicios,
+
+**para** saber qué ejercicios debo realizar ese día.
+
+  ### Criterios de aceptación
+
+  - Al expandir un día, deben mostrarse las tarjetas de ejercicios correspondientes.
+  - Cada tarjeta de ejercicio debe mostrar:
+    - Nombre del ejercicio
+    - Imagen del músculo a trabajar
+    - Series y repeticiones
+    - Zona del ejercicio
+    - Indicador si fue realizado o no
+    - Un elemento representativo para navegar al detalle del ejercicio (Si el ejercicio lo permite)
+
+-----
+
+## Escenario _"día de cardio"_
+
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** expandir un día que indica que es de cardio y ver su lista de opciones,
+
+**para** saber qué ejercicios/maquinas puedo elegír.
+
+  ### Criterios de aceptación
+  - Al expandir un día de cardio, deben mostrarse las opciones de ejercicios/maquinas correspondientes.
+  - Debe mostrar dos secciones:
+    - Primer selección:
+      - Mostrar una tarjeta que represente el ejercicio de cardio
+        - Imagen representativa
+        - Tiempo del ejercicio
+        - Indicador si fue realizado o no
+    - Segunda selección:
+      - Mostrar un listado de tarjetas con las opciones de ejercicios/maquinas disponibles cada tarjeta debe contener:
+        - Nombre del ejercicio
+        - Imagen de la maquina o ejercicio a trabajar
+        - Un elemento representativo para navegar al detalle (Si el ejercicio lo permite)
+
+-----
+
+## Escenario _"día de clase"_
+
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** expandir un día de clase y ver su lista de clases,
+
+**para** elegir una clase disponible a realizar ese día.
+
+  ### Criterios de aceptación
+  - Al expandir un día de clase, deben mostrarse las opciones de ejercicios/maquinas correspondientes.
+  - Debe mostrar dos secciones:
+    - Primer selección:
+      - Mostrar una tarjeta que represente la clase a tomar
+        - Imagen representativa
+        - Tiempo de la clase
+        - Indicador si fue realizado o no
+    - Segunda selección:
+      - Mostrar un listado de tarjetas con las opciones de clases disponibles cada tarjeta debe contener:
+        - Nombre de la clase
+        - Imagen de la clase a realizar
+        - Un elemento representativo para navegar al detalle (Si el ejercicio lo permite)
+      - Mostrar una nota de la disponibilidad de la clase (¿Se muestra los horarios? Y si no ¿Dónde se pueden consultar?)
+
+-----
+
+## Escenario _"día de libre (descanso)"_
+
+> DUDA:
+>
+> ¿Qué pasa si el usuario ya esta en el club?
+>
+> ¿Que indicaciones tiene el usuario?
+
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** ...,
+
+**para** ...
+
+  ### Criterios de aceptación
+  - Mostrar el número del día, seguido de la leyenda descanso.
+  - La sección no debe expandirse.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios                   |
+|--------------|-----------------------------------------------|------------------------------------------ |
+| BA           | <Badge text="Con duda"  variant="danger" />   | Revisar el escenario día libre (descanso) |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                           |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                           |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                           |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                           |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                           |
 
 

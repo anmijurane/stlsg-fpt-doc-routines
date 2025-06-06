@@ -1,0 +1,76 @@
+---
+title: Introducción al Módulo 4
+sidebar:
+  order: 0
+  label: Introducción
+lastUpdated: 2025-06-04
+prev: false
+next:
+  label: Módulo 4 | Historia 1
+---
+# Vista de rutina
+
+## Objetivo del módulo
+Mostrar al usuario la rutina completa asociada a la categoría y
+nivel seleccionados, organizada por días. Desde aquí podrá desplegar
+los ejercicios de cada día, ver detalles esenciales y marcar como realizados.
+
+## Componentes funcionales
+
+1. Encabezado contextual
+  - Muestra la categoría y el nivel seleccionados previamente.
+  - Puede incluir íconos o colores representativos.
+
+2. Tarjetas de días
+  - Días representados como tarjetas (ej: Día 1, Día 2, Día 3, Día 4).
+  - Cada tarjeta contiene:
+    - Chevron para expandir o colapsar los ejercicios del día.
+    - Posible indicador visual de avance.
+3. Lista de ejercicios por día
+
+  - Al expandir un día, se muestran sus ejercicios:
+    - Imagen del músculo a trabajar
+    - Series y repeticiones
+    - Estado: realizado o no (check)
+    - Clic en ejercicio para navegar a detalle del ejercicio
+
+  - Cuando sea un día que indique que hay cardio solamente debe:
+    - Primera sección:
+      - Mostrar las indicaciones a seguir
+      - Un icono representativo
+      - Tiempo del ejercicio
+      - Estado: realizado o no (check)
+    - Segunda sección:
+      - Una listado de tarjetas de los aparatos de cardio disponibles para la rutina.
+      - No debe tener el Estado: realizado o no.
+      - Clic en el ejercicio, para navegar a detalle de la maquina de cardio.
+
+  - Cuando sea un día que indique que hay clase:
+    - Primera sección:
+      - Mostrar las indicaciones a seguir
+      - Un icono representativo
+      - Tiempo del ejercicio
+      - Estado: realizado o no (check)
+    - Segunda sección:
+      - Una listado de tarjetas de las clases a mostrar.
+      - No debe tener el Estado: realizado o no.
+      - Indicar la disponibilidad de clase en el club (¿Dónde esta esa información?)
+
+4. Sincronización con progreso
+  - Si un ejercicio se marca como hecho desde esta vista o desde la pantalla de detalle, debe actualizarse en ambas.
+
+## Comportamiento esperado
+  - Al entrar, los días están colapsados.
+  - El usuario puede expandir un solo día a la vez.
+  - Al hacer clic en un ejercicio, se navega a su detalle.
+  - Al marcar como realizado, el estado se guarda en localStorage y cambia visualmente (ej: check, color, tachado...).
+
+## Elementos visuales clave
+  - Tarjetas bien definidas con jerarquía visual entre día y ejercicios.
+  - Imagen del músculo trabajada integrada en la tarjeta.
+  - Íconos o colores que indiquen si el ejercicio ya fue marcado como hecho.
+  - Feedback visual al marcar un ejercicio (sin necesidad de recargar).
+
+## Posibles mejoras a futuro
+  - Animaciones al expandir o colapsar días.
+  - Mostrar duración estimada de la rutina del día.

@@ -1,18 +1,38 @@
 ---
 title: Navegar al detalle de un ejercicio.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
+banner:
+  content: |
+    Esta historia es parte del alcance del MVP 3. En el MVP 2, no debe aparecer.
 sidebar:
   label: Historia 5
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-next:
-  label: Epic 3
-draft: true
-
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-06-05
 ---
+import { Badge } from '@astrojs/starlight/components';
 
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** poder ver más información de un ejercicio específico,
+
+**para** entender cómo se realiza correctamente.
+
+## Criterios de aceptación:
+
+  - Al hacer clic en el elemento de _"ver detalle"_, se navega a la pantalla de detalle respectivo del ejercicio.
+  - La información del ejercicio se debe cargar correctamente.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 
