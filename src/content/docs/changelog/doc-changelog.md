@@ -14,6 +14,16 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.13.0@latest] - 2025-06-05
+
+## ✨ Add
+* Se agrega las propuestas de diseño para el listado de rutinas, tanto especiales con una barra de progreso.
+
+## 📍 [0.12.0@latest] - 2025-06-05
+
+## ✨ Add
+* Se agrega las propuestas de diseño para el disclamer legar y previo a rutinas.
+
 ## 🚀 [0.11.0@latest] - 2025-06-05
 
 ## ✨ Add
