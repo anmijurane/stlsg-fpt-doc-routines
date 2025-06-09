@@ -69,6 +69,14 @@ export default defineConfig({
           ],
           collapsed: true
         },
+        {
+          label: 'Datos de rutinas',
+          items: [
+            { label: 'Concentrado', autogenerate: { directory: 'data-information/concentrate', }, collapsed: true },
+            { label: 'Listado de gimnasios', slug: 'data-information/gym-list', },
+          ],
+          collapsed: true
+        },
       ],
       customCss: ['./src/styles/theme.css'],
       locales: {
