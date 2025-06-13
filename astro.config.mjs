@@ -73,6 +73,7 @@ export default defineConfig({
           label: 'Datos de rutinas',
           items: [
             { label: 'Concentrado', autogenerate: { directory: 'data-information/concentrate', }, collapsed: true },
+            { label: 'Accesos QR', autogenerate: { directory: 'data-information/QR', }, collapsed: true },
             { label: 'Listado de gimnasios', slug: 'data-information/gym-list', },
           ],
           collapsed: true
