@@ -8,11 +8,11 @@ sidebar:
   badge:
     text: Nuevo
     variant: success
-lastUpdated: 2025-06-05
+lastUpdated: 2025-06-19
 ---
 import { Badge } from '@astrojs/starlight/components';
 
-**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_, lei las indicaciones y decidi continuar
 
 **como** usuario/socio de Planet Fitness,
 
@@ -35,7 +35,7 @@ import { Badge } from '@astrojs/starlight/components';
 
 ## Escenario _"día de cardio"_
 
-**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_, lei las indicaciones y decidi continuar
 
 **como** usuario/socio de Planet Fitness,
 
@@ -47,21 +47,19 @@ import { Badge } from '@astrojs/starlight/components';
   - Al expandir un día de cardio, deben mostrarse las opciones de ejercicios/maquinas correspondientes.
   - Debe mostrar dos secciones:
     - Primer selección:
-      - Mostrar una tarjeta que represente el ejercicio de cardio
-        - Imagen representativa
-        - Tiempo del ejercicio
-        - Indicador si fue realizado o no
+      - Mostrar la leyenda "Cardio con aparato"
+      - Mostrar la indicación: Usa la máquina elíptica u otro aparato de la zona de cardio.
+      - Indicador si fue realizado o no
     - Segunda selección:
-      - Mostrar un listado de tarjetas con las opciones de ejercicios/maquinas disponibles cada tarjeta debe contener:
+      - Mostrar un listado de tarjetas de forma horizontal con las opciones de ejercicios/maquinas disponibles, cada tarjeta debe contener:
         - Nombre del ejercicio
-        - Imagen de la maquina o ejercicio a trabajar
-        - Un elemento representativo para navegar al detalle (Si el ejercicio lo permite)
+      - Mostrar el tiempo.
 
 -----
 
 ## Escenario _"día de clase"_
 
-**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_, lei las indicaciones y decidi continuar
 
 **como** usuario/socio de Planet Fitness,
 
@@ -73,38 +71,39 @@ import { Badge } from '@astrojs/starlight/components';
   - Al expandir un día de clase, deben mostrarse las opciones de ejercicios/maquinas correspondientes.
   - Debe mostrar dos secciones:
     - Primer selección:
-      - Mostrar una tarjeta que represente la clase a tomar
-        - Imagen representativa
-        - Tiempo de la clase
-        - Indicador si fue realizado o no
+      - Mostrar la leyenda "Clases PE@PF a elegir"
+      - Mostrar junto un icono la leyenda: Consulta los horarios y disponibilidad en la recepción del club.
+      - Indicador si fue realizado o no
     - Segunda selección:
-      - Mostrar un listado de tarjetas con las opciones de clases disponibles cada tarjeta debe contener:
-        - Nombre de la clase
-        - Imagen de la clase a realizar
-        - Un elemento representativo para navegar al detalle (Si el ejercicio lo permite)
-      - Mostrar una nota de la disponibilidad de la clase (¿Se muestra los horarios? Y si no ¿Dónde se pueden consultar?)
+      - Mostrar un listado de tarjetas de forma horizontal con los nombres de la clase.
+      - Se puede hacer scrooll horizontal para poder visualzar más clases.
+      - Mostrar el tiempo.
 
 -----
 
 ## Escenario _"día de libre (descanso)"_
 
-> DUDA:
->
-> ¿Qué pasa si el usuario ya esta en el club?
->
-> ¿Que indicaciones tiene el usuario?
 
-**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_, lei las indicaciones y decidi continuar
 
 **como** usuario/socio de Planet Fitness,
 
-**quiero** ...,
+**quiero** expandir un dia de descanso,
 
-**para** ...
+**para** ver las indicaciones
 
-  ### Criterios de aceptación
-  - Mostrar el número del día, seguido de la leyenda descanso.
-  - La sección no debe expandirse.
+### Criterios de aceptación
+  - Al expandir el día de descanso, debe visualizarse:
+    - Un icono junto con una leyenda: 
+    > ¡Has hecho un gran trabajo!
+    > El día de hoy te toca descansar.
+    > Recuerda que el descanso es parte
+    > fundamental de tu entrenamiento.
+    
+    - Debajo un icono de información con la leyenda:
+    > Si eres socio con membresía PF Black Card®
+    > te sugerimos disfrutar alguna de nuestras
+    > amenidades en el Black Card Spa®
 
 ## Seguimiento
 

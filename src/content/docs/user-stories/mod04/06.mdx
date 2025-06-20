@@ -1,27 +1,29 @@
 ---
-title: Regresar al menu principal.
+title: Navegar al detalle de un ejercicio.
+banner:
+  content: |
+    Esta historia es parte del alcance del MVP 3. En el MVP 2, no debe aparecer.
 sidebar:
   label: Historia 6
   badge:
     text: Nuevo
     variant: success
-lastUpdated: 2025-06-05
-next: false
+lastUpdated: 2025-06-19
 ---
 import { Badge } from '@astrojs/starlight/components';
 
-**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_ y lei la advertencia antes de iniciar la rutina.
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_, lei las indicaciones y decidi continuar
 
 **como** usuario/socio de Planet Fitness,
 
-**quiero** poder regresar a la pantalla de _"Exploración de rutinas"_,
+**quiero** poder ver más información de un ejercicio específico,
 
-**para** seleccionar una rutina diferente o cambio de preferencia.
+**para** entender cómo se realiza correctamente.
 
 ## Criterios de aceptación:
 
-  - Cuando oprima el botón debo regresar a la pantalla de _Exploración de rutinas_.
-  - Se debe mostrar cerradas las secciones de las categorias.
+  - Al hacer clic en el elemento de _"ver detalle"_, se navega a la pantalla de detalle respectivo del ejercicio.
+  - La información del ejercicio se debe cargar correctamente.
 
 ## Seguimiento
 
