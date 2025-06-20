@@ -51,6 +51,7 @@ export default defineConfig({
             { label: 'Epic 6: Reproducción de video', autogenerate: { directory: 'user-stories/mod06' }, collapsed: true, },
             { label: 'Epic 7: Marcado local de progreso', autogenerate: { directory: 'user-stories/mod07' }, collapsed: true, },
             { label: 'Epic 8: Retroalimentación', autogenerate: { directory: 'user-stories/mod08' }, collapsed: true, },
+            { label: 'Epic 9: Disclaimer Legal de Uso', autogenerate: { directory: 'user-stories/mod09' }, collapsed: true, },
           ],
         },
         {

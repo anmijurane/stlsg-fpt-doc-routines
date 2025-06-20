@@ -1,0 +1,45 @@
+---
+title: Introducción al Módulo 9
+sidebar:
+  order: 0
+  label: Introducción
+lastUpdated: 2025-06-19
+prev: false
+next:
+  label: Módulo 9 | Historia 1
+---
+
+# Pantalla informativa
+
+## Objetivo
+Mostrar un aviso legal obligatorio al ingresar a la plataforma, asegurando que el usuario comprende
+y acepta los términos de uso antes de acceder a cualquier funcionalidad.
+
+## Componentes funcionales
+
+1. Mensaje principal
+	- El modal se despliega automáticamente al cargar el sitio, antes de cualquier interacción.
+	- El usuario debe aceptar para continuar. Sin aceptación, no puede navegar la plataforma.
+	- Una vez aceptado, se guarda un flag en sessionStorage o cookie, evitando mostrarlo nuevamente durante la misma sesión.
+
+
+## Comportamiento esperado
+
+	-	Al cargar el sitio por primera vez en la sesión, se despliega este modal de forma automática.
+	-	El modal contiene:
+	-	Ícono informativo
+	-	Mensaje legal claro
+	-	Botón de aceptación (“Aceptar”)
+	-	El resto del sitio queda bloqueado hasta que el usuario lo acepte.
+	-	Una vez aceptado:
+	-	Se guarda un flag en sessionStorage o cookie.
+	-	El modal no se vuelve a mostrar durante esa sesión.
+	-	Si el usuario no acepta, no puede explorar las rutinas.
+
+## Elementos visuales clave
+  - Ícono de atención visual.
+  - Botón "Aceptar con buen contraste, tamaño adecuado para dispositivos móviles, resaltando como el principal.
+  - **(Opcional)** Soporte para scroll en caso de que se agregue más texto.
+
+## Posibles mejoras a futuro
+  - Opción de “No volver a mostrar este mensaje”.
