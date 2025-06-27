@@ -1,0 +1,40 @@
+---
+title: Disclamer
+sidebar:
+  label: Historia 5
+  badge:
+    text: Obsoleto
+    variant: danger
+lastUpdated: 2025-06-19
+next: false
+
+---
+
+import { Badge } from '@astrojs/starlight/components';
+import { LinkButton } from '@astrojs/starlight/components';
+
+
+__Cambiamos a un nuevo módulo esta historia.__
+
+<LinkButton href="/user-stories/mod09/introduce/" variant='primary'>Ir al módulo 9</LinkButton>
+
+
+### ¿Por qué mover el disclaimer a un nuevo módulo?
+
+
+1. Es global, no contextual
+
+Este mensaje ya no pertenece a una rutina específica, sino a toda la plataforma. Por tanto:
+	-	Se muestra al cargar el sitio, antes de cualquier navegación.
+	-	Aplica a todas las categorías y niveles.
+
+2. Tiene comportamiento obligatorio y condicional
+	-	El usuario no puede avanzar sin aceptarlo.
+	-	Implica un control de flujo: si no acepta, no puede usar la plataforma.
+
+3. Puede ser reutilizable en futuras versiones
+
+Si más adelante agregamos login o más flujos, este disclaimer puede:
+	-	Ser reutilizado como paso previo de ingreso.
+	-	Llevar versión legal u opciones de consentimiento más robustas.
+

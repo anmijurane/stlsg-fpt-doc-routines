@@ -1,29 +1,31 @@
 ---
-title: Ver la rutina correspondiente a mi selección
+title: Mostrar disclaimer legal obligatorio al iniciar la plataforma.
 sidebar:
   label: Historia 1
   badge:
     text: Nuevo
     variant: success
-lastUpdated: 2025-06-04
+lastUpdated: 2025-06-19
 prev:
-  label: Introducción al módulo 4
+  label: Introducción al módulo 9
 ---
 
 import { Badge } from '@astrojs/starlight/components';
 
-**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_, lei las indicaciones y decidi continuar
+**dado** que ya seleccione una rutina del listado de _"Exploración de rutinas"_
 
 **como** usuario/socio de Planet Fitness,
 
-**quiero** ver la rutina de ejercicios relacionada con la categoría y nivel que elegí,
+**debo** ver un aviso legal antes de utilizar las rutinas,
 
-**para** confirmar que estoy en el plan correcto antes de comenzar.
+**para** conocer los riesgos, condiciones de uso y poder aceptar la responsabilidad.
 
 ## Criterios de aceptación:
-
-  - Debe mostrarse la categoría y el nivel actual en la parte superior de la pantalla.
-  - La información debe mantenerse consistente con la selección anterior.
+	-	El modal debe aparecer automáticamente al ingresar al sitio.
+	-	Debe contener el mensaje legal aprobado, sin alteraciones.
+	-	El botón “Aceptar” debe permitir continuar con la navegación.
+	-	El sitio debe estar bloqueado hasta que el usuario acepte.
+	-	El estado de aceptación debe registrarse localmente para esa sesión.
 
 ## Seguimiento
 

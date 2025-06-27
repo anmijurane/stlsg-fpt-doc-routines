@@ -16,13 +16,103 @@ import { Badge } from '@astrojs/starlight/components';
 
 **como** usuario/socio de Planet Fitness,
 
-**debo** visualizar un mensaje que me explique cómo funcionan las rutinas,
-para saber qué esperar antes de comenzar.
+**debo** visualizar una pantalla que me explique cómo funcionan las rutinas,
 
-## Criterios de aceptación
+**para** entender los beneficios de la rutina antes de comenzar.
 
+### Criterios de aceptación
 - El mensaje debe describir que el usuario está a punto de comenzar una rutina basada en su selección.
-- Debe estar claramente separado del aviso legal. (NOTA: Esto se revizará)
+- El encabezado debe mostrar el nombre de la categoría seleccionada.
+-	El ícono y el color deben estar alineados a la categoría.
+-	El texto debe ser único para cada categoría.
+
+-----------
+
+## Escenario _"Ganancia muscular."_
+
+**dado** que ya seleccione una rutina del listado de la categoría _"Ganancia muscular"_
+
+**como** usuario/socio de Planet Fitness,
+
+**debo** visualizar el siguiente mensaje:
+
+> Estás iniciando un entrenamiento enfocado en la ganancia muscular, también conocido como entrenamiento
+> de hipertrofia. Esta rutina se basa en una serie de factores diseñados específicamente para estimular y
+> maximizar el crecimiento de la masa muscular. 
+
+que corresponde a la categoría seleccionada previamente.
+
+**para** entender los beneficios de la rutina antes de comenzar.
+
+### Criterios de aceptación
+
+- El mensaje debe ser el establecido y corresponder con el que se establecio.
+
+
+-----------
+
+## Escenario _"Adaptación."_
+
+**dado** que ya seleccione una rutina del listado de la categoría _"Adaptación"_
+
+**como** usuario/socio de Planet Fitness,
+
+**debo** visualizar el siguiente mensaje:
+
+> Con esta rutina comenzarás a desarrollar fuerza, resistencia, flexibilidad y acondicionamiento
+> aeróbico. Además, incrementarás la quema de calorías y mejorarás tu bienestar general. 
+
+que corresponde a la categoría seleccionada previamente.
+
+**para** entender los beneficios de la rutina antes de comenzar.
+
+### Criterios de aceptación
+
+- El mensaje debe ser el establecido y corresponder con el que se establecio.
+
+-----------
+
+## Escenario _"Salud."_
+
+**dado** que ya seleccione una rutina del listado de la categoría _"Salud"_
+
+**como** usuario/socio de Planet Fitness,
+
+**debo** visualizar el siguiente mensaje:
+
+
+>   Nuestras rutinas de salud están diseñadas para promover el bienestar físico y mental,
+>   ayudándote a mejorar tu resistencia, tonificar tu cuerpo y disfrutar de un descanso más reparador 
+
+que corresponde a la categoría seleccionada previamente.
+
+**para** entender los beneficios de la rutina antes de comenzar.
+
+### Criterios de aceptación
+
+- El mensaje debe ser el establecido y corresponder con el que se establecio.
+
+-----------
+
+## Escenario _"Quema de Grasa."_
+
+**dado** que ya seleccione una rutina del listado de la categoría _"Quema de Grasa"_
+
+**como** usuario/socio de Planet Fitness,
+
+**debo** visualizar el siguiente mensaje:
+
+> El entrenamiento enfocado en la quema de grasa ayuda a acelerar el metabolismo, contribuyendo a la
+> pérdida de grasa de forma gradual 
+
+que corresponde a la categoría seleccionada previamente.
+
+**para** entender los beneficios de la rutina antes de comenzar.
+
+### Criterios de aceptación
+
+- El mensaje debe ser el establecido y corresponder con el que se establecio.
+
 
 ## Seguimiento
 
