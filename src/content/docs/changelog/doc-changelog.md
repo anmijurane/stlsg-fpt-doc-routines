@@ -14,6 +14,11 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.14.0@latest] - 2025-06-26
+
+## ✨ Add
+* Se agrega tabla general de las rutinas.
+
 ## 🚀 [0.13.0@latest] - 2025-06-10
 
 ## ✨ Add
