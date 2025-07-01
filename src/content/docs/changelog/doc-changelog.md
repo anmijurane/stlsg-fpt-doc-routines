@@ -14,6 +14,16 @@ next: false
     [🔥] eliminaciones
     [⚠️] obsoleto
 
+## 🚀 [0.16.0@latest] - 2025-06-27
+
+## ✨ Add
+* Sprint 4 / Doc
+
+## 🚀 [0.15.0@latest] - 2025-06-27
+
+## ✨ Add
+* Consentrado por rutina con imagenes
+
 ## 🚀 [0.14.0@latest] - 2025-06-26
 
 ## ✨ Add
