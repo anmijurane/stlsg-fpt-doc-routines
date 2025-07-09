@@ -116,8 +116,13 @@ import MainLayout from "../../layout/main.layout.astro";
           icon: "info",
           confirmButtonText: "Cool",
         });
+        let redirectTo = "/";
+        const isRedirect = new URL(document.URL).searchParams.get("redirectTo");
+        if (isRedirect) {
+          redirectTo = isRedirect.replace(/_/g, "/");
+        }
         setTimeout(() => {
-          navigate("/");
+          navigate(redirectTo);
         }, 2300);
         return;
       } catch (error) {

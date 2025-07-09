@@ -95,7 +95,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (!isAuthenticated && !isPublicRoute) {
     // Usuario no autenticado intentando acceder a una ruta protegida.
     console.log(`Unauthenticated user on protected route ${pathname}. Redirecting to login page: ${PUBLIC_ROUTES[0]}.`);
-    return redirect(PUBLIC_ROUTES[0]); // Redirige a la primera ruta pública (asumimos que es el login)
+    return redirect(`${PUBLIC_ROUTES[0]}/?redirectTo=${context.url.pathname.replaceAll('/', '_')}`); // Redirige a la primera ruta pública (asumimos que es el login)
   }
 
   // Para todos los demás casos (ej. usuario autenticado en ruta protegida,
