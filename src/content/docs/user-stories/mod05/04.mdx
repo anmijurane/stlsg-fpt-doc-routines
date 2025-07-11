@@ -1,18 +1,41 @@
 ---
-title: Volver a la rutina sin perder el estado.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
+title: Visualización de imagen del aparato o ejercicio
 sidebar:
   label: Historia 4
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-next:
-  label: Epic 3
-draft: true
-
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** ver una imagen del aparato o posición inicial del ejercicio,
+
+**para** identificar visualmente cómo se realiza y si necesito preparar algún equipo antes de empezar.
+
+## Criterios de aceptación:
+
+- La imagen debe estar centrada en la sección superior-media de la pantalla.
+- La imagen debe ser específica del ejercicio mostrado.
+- Debe tener buena resolución, pero optimizada para no afectar tiempos de carga.
+- Debe ocupar un espacio destacado sin invadir secciones inferiores.
+
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 

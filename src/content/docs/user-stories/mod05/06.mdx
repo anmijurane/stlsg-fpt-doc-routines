@@ -1,7 +1,7 @@
 ---
-title: Visualización del tipo de ejercicio
+title: Visualización de parámetros del ejercicio según categoría
 sidebar:
-  label: Historia 3
+  label: Historia 6
   badge:
     text: Nuevo
     variant: success
@@ -16,15 +16,21 @@ import { Badge } from '@astrojs/starlight/components';
 
 **como** usuario/socio de Planet Fitness,
 
-**quiero** ver una etiqueta que indique la zona de ejercicio,
+**quiero** ver los parámetros del ejercicio (como rondas, tiempos o series y repeticiones), adaptados a la categoría del ejercicio,
 
-**para** saber con qué tipo de movimiento o equipo estoy trabajando antes de comenzar.
+**para** saber exactamente cómo debo ejecutarlo según su tipo.
 
 ## Criterios de aceptación:
 
-  - El chip debe mostrarse debajo del nombre del ejercicio.
-  - El contenido del chip debe adaptarse dinámicamente según el tipo de ejercicio.
-  - Debe tener un diseño visible y distintivo (color amarillo de fondo con texto centrado).
+  - Si la categoría del ejercicio es Quema de grasa, se deben mostrar los campos:
+    - Rondas
+    - Tiempo activo
+    - Tiempo de descanso
+  - Si la categoría es Salud, Adaptación o Ganancia muscular, se deben mostrar los campos:
+    - Series
+    - Repeticiones
+  - Los campos deben mostrarse de forma clara, con etiquetas y valores fácilmente legibles.
+  - La presentación visual debe mantenerse ordenada y consistente independientemente de la categoría.
 
 ## Seguimiento
 

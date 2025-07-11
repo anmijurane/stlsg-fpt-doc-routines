@@ -1,15 +1,38 @@
 ---
-title: Marcar el ejercicio como realizado.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
+title: Visualización del nombre del ejercicio.
 sidebar:
   label: Historia 2
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-draft: true
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** ver claramente el nombre del ejercicio en la parte superior de la pantalla, justo debajo del encabezado de categoría,
+
+**para** identificar rápidamente qué ejercicio estoy por realizar.
+
+## Criterios de aceptación:
+
+  - El nombre del ejercicio debe mostrarse en texto legible y centrado debajo del encabezado.
+  - El estilo tipográfico debe ser consistente con el resto de la interfaz (e.g., negrita o destacada).
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 

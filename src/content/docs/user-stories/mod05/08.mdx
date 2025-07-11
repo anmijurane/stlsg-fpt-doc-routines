@@ -1,7 +1,7 @@
 ---
-title: Visualización del tipo de ejercicio
+title: Marcado de ejercicio como hecho o pendiente
 sidebar:
-  label: Historia 3
+  label: Historia 8
   badge:
     text: Nuevo
     variant: success
@@ -16,15 +16,16 @@ import { Badge } from '@astrojs/starlight/components';
 
 **como** usuario/socio de Planet Fitness,
 
-**quiero** ver una etiqueta que indique la zona de ejercicio,
+**quiero** poder marcar un ejercicio como “hecho” o “pendiente” directamente desde la vista del detalle,
 
-**para** saber con qué tipo de movimiento o equipo estoy trabajando antes de comenzar.
+**para** llevar un control visual de mi progreso dentro de la rutina.
 
 ## Criterios de aceptación:
 
-  - El chip debe mostrarse debajo del nombre del ejercicio.
-  - El contenido del chip debe adaptarse dinámicamente según el tipo de ejercicio.
-  - Debe tener un diseño visible y distintivo (color amarillo de fondo con texto centrado).
+  - Debe haber un botón o ícono accesible para marcar o desmarcar el ejercicio como hecho.
+  - El estado del ejercicio debe actualizarse visualmente (Cambio de ícono).
+  - El cambio debe sincronizarse con la pantalla de rutina correspondiente.
+  - El marcado debe mantenerse al regresar a la rutina o cambiar de pantalla.
 
 ## Seguimiento
 

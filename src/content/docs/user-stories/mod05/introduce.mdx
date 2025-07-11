@@ -1,0 +1,53 @@
+---
+title: Introducción al Módulo 5
+sidebar:
+  order: 0
+  label: Introducción
+lastUpdated: 2025-06-04
+prev: false
+next:
+  label: Módulo 5 | Historia 1
+---
+# Vista de rutina
+
+## Objetivo del módulo
+  Brindar al usuario una vista detallada, clara y funcional del ejercicio seleccionado dentro de la rutina.
+  Mostrar la información técnica (tiempos, repeticiones, series, rondas) según la categoría correspondiente.
+  Facilitar la correcta ejecución mediante soporte visual (imagen + video).
+  Permitir al usuario marcar su progreso individual por ejercicio.
+  Mostrar de forma visual qué grupo muscular está siendo trabajado.
+  Ofrecer una vía rápida de retorno a la rutina sin perder el contexto.
+
+## Componentes funcionales
+
+  1. Título de categoría e ícono.
+  2. Nombre del ejercicio y tipo de ejercicio (chip: “Funcional”, “Peso integrado”, etc.).
+  3. Imagen ilustrativa del ejercicio o aparato.
+  4. Reproductor de video incrustado en el área visual.
+  5. Visualización de parámetros del ejercicio, diferenciados por tipo:
+      - Quema de grasa: Rondas, Tiempo activo, Descanso.
+      - Salud / Adaptación / Ganancia muscular: Series y Repeticiones.
+  6. Ilustración del músculo trabajado.
+  7. Botón o ícono para marcar como “hecho” o “pendiente”, sincronizado con la pantalla de rutina.
+  8. Mensaje de ayuda contextual (“Consulta a un entrenador”).
+
+## Comportamiento esperado
+  - El componente cambia dinámicamente según la categoría del ejercicio.
+  - Al dar clic en el ícono de reproducción, se muestra un video de ejecución del ejercicio.
+  - El botón de marcado (hecho/pendiente) cambia de estado localmente y actualiza el estado del ejercicio en la rutina correspondiente.
+  - La navegación hacia atrás retorna al usuario a la pantalla de la rutina, manteniendo su posición previa.
+
+## Elementos visuales clave
+  - Color temático y ícono de categoría en el header.
+  - Etiqueta de tipo de ejercicio (chip amarillo).
+  - Imagen ilustrativa del ejercicio o aparato, centrada.
+  - Reproductor de video con botón play sobrepuesto.
+  - Datos clave del ejercicio (rondas o series/repeticiones).
+  - Ilustración del grupo muscular trabajado.
+  - Ícono de reloj o similar, como soporte visual para el componente de tiempo.
+  - Franja inferior informativa con ícono de pulgar arriba y mensaje de consulta.
+
+## Posibles mejoras a futuro
+  - Agregar descripción textual del ejercicio (pasos, tips).
+  - Personalización de parámetros por usuario (modificar repeticiones, series, etc.).
+  - Guardado del progreso total de la rutina a través de sesiones.

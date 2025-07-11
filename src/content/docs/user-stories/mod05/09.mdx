@@ -1,7 +1,7 @@
 ---
-title: Visualización del tipo de ejercicio
+title: Banner informativo de ayuda al final del ejercicio
 sidebar:
-  label: Historia 3
+  label: Historia 9
   badge:
     text: Nuevo
     variant: success
@@ -16,16 +16,17 @@ import { Badge } from '@astrojs/starlight/components';
 
 **como** usuario/socio de Planet Fitness,
 
-**quiero** ver una etiqueta que indique la zona de ejercicio,
+**quiero** ver un mensaje al final de la vista del ejercicio que me recuerde que puedo consultar a un entrenador,
 
-**para** saber con qué tipo de movimiento o equipo estoy trabajando antes de comenzar.
+**para** sentirme acompañado si tengo dudas durante la ejecución.
 
 ## Criterios de aceptación:
 
-  - El chip debe mostrarse debajo del nombre del ejercicio.
-  - El contenido del chip debe adaptarse dinámicamente según el tipo de ejercicio.
-  - Debe tener un diseño visible y distintivo (color amarillo de fondo con texto centrado).
-
+  - El mensaje debe mostrarse en una franja visual al final de la pantalla.
+  - Debe incluir un ícono de pulgar arriba y el texto:
+    > “Si tienes alguna duda, consulta a un entrenador”.
+  - El estilo debe ser amistoso, visible, pero no invasivo.
+  - El banner debe estar siempre presente, sin importar la categoría del ejercicio.
 ## Seguimiento
 
 | Stackeholder |                     Estado                    |             Comentarios             |
