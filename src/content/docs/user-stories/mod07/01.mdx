@@ -1,16 +1,38 @@
 ---
 title: Marcar un ejercicio como realizado.
-banner:
-  content: |
-    ¡Se acaba de agregar es pagina!
 sidebar:
   label: Historia 1
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-prev: false
-draft: true
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** poder marcar un ejercicio como realizado desde la vista de rutina o desde el detalle del ejercicio, para llevar un control visual de mi progreso durante la sesión.
+
+## Criterios de aceptación:
+
+  - El usuario puede marcar como realizado un ejercicio desde la pantalla de rutina.
+  - El usuario puede marcar como realizado un ejercicio desde la pantalla de detalle.
+  - Al marcar como hecho, debe reflejarse un cambio visual claro.
+  - El estado debe persistir en la sesión actual.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 

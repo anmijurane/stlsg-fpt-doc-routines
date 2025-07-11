@@ -1,0 +1,45 @@
+---
+title: Introducción al Módulo 7
+sidebar:
+  order: 0
+  label: Introducción
+  badge:
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
+prev: false
+next:
+  label: Módulo 7 | Historia 1
+---
+# Vista de rutina
+
+## Objetivo del módulo
+
+Permitir al usuario llevar un control visual de qué ejercicios ha realizado durante su sesión actual.
+Marcar ejercicios como completados desde diferentes pantallas (detalle o rutina).
+Mantener sincronizado el estado del progreso entre pantallas.
+Limpiar automáticamente el progreso al iniciar un nuevo día o sesión.urar compatibilidad total en dispositivos móviles utilizando el reproductor nativo del sistema operativo.
+
+## Componentes funcionales
+
+  - Botón o ícono para marcar un ejercicio como hecho/pendiente.
+  - Estado persistente durante la sesión.
+  - Sincronización del estado entre la pantalla de rutina y el detalle de ejercicio.
+  - Mecanismo automático para reiniciar el progreso al comenzar un nuevo día.
+
+## Comportamiento esperado
+
+  - Si el usuario marca un ejercicio como hecho en la pantalla de rutina, este también debe aparecer como hecho en la vista de detalle (y viceversa).
+  - Cuando se cargue cualquier pantalla, se debe consultar el estado local para mostrar el progreso actual.
+  - El progreso se mantiene durante el día actual, pero se limpia automáticamente al iniciar una nueva jornada o sesión.
+
+## Elementos visuales clave
+
+  - Indicador visual de ejercicio hecho.
+  - Consistencia visual entre pantallas.
+  - Sincronización inmediata al cambiar de vista.
+
+## Posibles mejoras a futuro
+
+  - Opción para desactivar el reseteo diario del progreso.
+  - Visualización del porcentaje completado del día.

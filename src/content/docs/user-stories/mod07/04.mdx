@@ -1,18 +1,38 @@
 ---
 title: Reiniciar el progreso local.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
 sidebar:
   label: Historia 4
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-next:
-  label: Epic 3
-draft: true
-
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** que el progreso marcado de los ejercicios se reinicie automáticamente al comenzar un nuevo día,
+
+**para** tener un registro limpio y comenzar desde cero en cada sesión diaria.
+
+## Criterios de aceptación:
+
+  - Al iniciar la aplicación en un nuevo día, todos los ejercicios deben mostrarse como pendientes, sin marcas de realizado.
+  - Si la fecha cambió, el almacenamiento local debe limpiarse automáticamente.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 

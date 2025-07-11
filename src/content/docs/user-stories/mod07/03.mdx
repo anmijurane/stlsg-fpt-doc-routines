@@ -1,16 +1,39 @@
 ---
 title: Sincronízar el estado entre pantallas.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
 sidebar:
   label: Historia 3
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-draft: true
-
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** que el estado de los ejercicios se mantenga sincronizado entre la pantalla de rutina y la pantalla de detalle,
+
+**para** asegurarme de que cualquier cambio que haga se refleje en ambas vistas.
+
+## Criterios de aceptación:
+
+  - Si el usuario marca un ejercicio como realizado en la pantalla de rutina, el cambio debe reflejarse en la pantalla de detalle.
+  - Si el usuario marca o desmarca un ejercicio en la pantalla de detalle, también debe actualizarse en la pantalla de rutina.
+  - El cambio debe ser inmediato, sin necesidad de recargar la aplicación.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 
