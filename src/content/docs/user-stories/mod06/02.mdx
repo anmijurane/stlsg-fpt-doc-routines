@@ -1,15 +1,40 @@
 ---
-title: Cerrar el video fácimente.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
+title: Condición para mostrar el botón de reproducción
 sidebar:
   label: Historia 2
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-21
-draft: true
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
+next: false
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** que el botón de reproducción solo se muestre si el ejercicio tiene un video disponible,
+
+**para** evitar confusión al intentar ver una demostración que no existe.
+
+## Criterios de aceptación:
+
+  - Si el ejercicio no tiene video asociado, el ícono de reproducción no debe aparecer.
+  - El botón debe mostrarse únicamente cuando el recurso de video esté disponible y accesible.
+  - No debe haber un espacio vacío donde estaría el botón si no hay video.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 
