@@ -1,16 +1,40 @@
 ---
 title: Rechazar o ignorar la solicitud de feedback.
-# banner:
-#   content: |
-#     ¡Se acaba de agregar es pagina!
 sidebar:
   label: Historia 4
   badge:
-    text: BACKLOG
-    variant: danger
-lastUpdated: 2025-05-22
-draft: true
-
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
 ---
 
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya estoy en el sitio, y se abrio el modal
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** poder cerrar el modal de retroalimentación si no deseo participar,
+
+**para** no sentirme forzado a calificar mi experiencia.
+
+## Criterios de aceptación:
+
+  - El modal debe tener un botón o ícono de cerrar visible y accesible.
+  - Al cerrar el modal, se debe registrar el rechazo de la solicitud como un evento separado.
+  - Una vez cerrado, el modal no debe volver a aparecer durante la sesión actual.
+
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="Terminado" variant="note" />     |                                     |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
 

@@ -1,0 +1,64 @@
+---
+title: Introducción al Módulo 8
+sidebar:
+  order: 0
+  label: Introducción
+  badge:
+    text: Nuevo
+    variant: success
+lastUpdated: 2025-07-07
+prev: false
+next:
+  label: Módulo 8 | Historia 1
+---
+# Vista de rutina
+
+## Objetivo del módulo
+
+Solicitar la opinión del usuario sobre su experiencia en la plataforma.
+Permitir calificar con emojis (buena, regular, mala) y un comentario opcional.
+Presentar el módulo de retroalimentación de manera aleatoria y no intrusiva.
+Medir el comportamiento del usuario: accesos, tiempo por página y patrones de navegación.
+Almacenar todos los datos recolectados para análisis de métricas y mejora continua.
+
+## Componentes funcionales
+
+  - Modal emergente de retroalimentación con emojis.
+  - Icono de cierre para omitir la evaluación.
+  - Campo opcional de comentario visible tras seleccionar un emoji.
+  - Registro de accesos por página.
+  - Registro de fecha y hora exacta de cada acceso.
+  - Medición de tiempo de navegación por sección o pantalla.
+  - Identificación de las secciones más visitadas.
+  - Almacenamiento de todas las respuestas y métricas.
+
+## Comportamiento esperado
+
+  - El modal debe aparecer aleatoriamente después de cierto tiempo o cantidad de clics:
+    - 5 minutos desde el inicio de sesión, o
+    - entre 30 y 40 clics (valor aleatorio dentro de ese rango).
+  - Si el usuario selecciona un emoji:
+    - Se registra inmediatamente su respuesta.
+    - Se ocultan los otros emojis.
+    - Aparece el campo para comentario opcional.
+  - Si el usuario cierra el modal, también debe registrarse como un rechazo de retroalimentación.
+  - Cada página visitada registra:
+    - Hora de acceso
+    - Tiempo total en pantalla
+    - Nombre de la sección
+    - Si se trata de una rutina, su categoría
+## Elementos visuales clave
+
+  - Modal con el mensaje "¡Tu opinión nos importa!"
+  - Emojis grandes, con texto explicativo:
+    - Buena
+    - Regular
+    - Mala
+  - Botón o ícono para cerrar el modal.
+  - Cuadro de texto que aparece solo si se selecciona un emoji.
+
+## Posibles mejoras a futuro
+
+  - Mostrar resultados agregados al administrador (estadísticas de satisfacción).
+  - Permitir al usuario calificar secciones específicas de manera directa.
+  - Guardar historial de retroalimentación por usuario autenticado (en caso de login).
