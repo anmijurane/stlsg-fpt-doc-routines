@@ -79,6 +79,11 @@ export default defineConfig({
           ],
           collapsed: true
         },
+        {
+          label: 'Feedback de rutinas',
+          autogenerate: { directory: 'feedback/periods' },
+          collapsed: true
+        },
       ],
       customCss: ['./src/styles/theme.css'],
       locales: {
