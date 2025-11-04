@@ -1,10 +1,15 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import dotenv from 'dotenv';
 
 import node from '@astrojs/node';
 
 import tailwindcss from '@tailwindcss/vite';
+
+dotenv.config();
+
+const PORT = Number(process.env.PORT) || 8765;
 
 export default defineConfig({
   site: 'https://fpt-routines.sitelseg.mx/',
@@ -16,6 +21,10 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+  },
+
+  server: {
+    port: PORT
   },
 
   integrations: [
