@@ -1,0 +1,372 @@
+---
+
+---
+
+<div class="error-search-container">
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="error-search-input"
+      class="search-input"
+      placeholder="Buscar código de error (ej: E_FPT_ROUTINES_401_001)..."
+      autocomplete="off"
+    />
+    <svg
+      class="search-icon"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </div>
+
+  <div id="search-results" class="search-results">
+    <div class="no-results">
+      <p>Escribe un código de error para buscar (ej: E_FPT_ROUTINES_401_001)</p>
+    </div>
+  </div>
+
+  <div id="error-details" class="error-details hidden">
+    <!-- Los detalles se mostrarán aquí dinámicamente -->
+  </div>
+</div>
+
+<style is:global>
+  .error-search-container {
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .search-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    font-size: 1rem;
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    color: var(--sl-color-text);
+    transition: all 0.2s ease;
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--sl-color-text-accent);
+    box-shadow: 0 0 0 3px rgba(136, 58, 234, 0.1);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sl-color-gray-3);
+    pointer-events: none;
+  }
+
+  .search-results {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .search-results.hidden {
+    display: none;
+  }
+
+  .result-item {
+    border-bottom: 1px solid var(--sl-color-gray-2);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .result-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+    border-bottom: 1px solid var(--sl-color-text-accent);
+  }
+
+  .result-code {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--sl-color-text-accent);
+    min-width: 3.5rem;
+  }
+
+  .result-description {
+    color: var(--sl-color-gray-2);
+    font-size: 0.9375rem;
+  }
+
+  .no-results {
+    padding: 2rem;
+    text-align: center;
+    color: var(--sl-color-gray-3);
+  }
+
+  .error-details {
+    margin-top: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(136, 58, 234, 0.1) 0%,
+      rgba(58, 134, 234, 0.05) 100%
+    );
+    border: 1px solid var(--sl-color-text-accent);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .error-details.hidden {
+    display: none;
+  }
+
+  .detail-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+
+  .detail-code {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--sl-color-text-accent);
+    line-height: 1;
+  }
+
+  .detail-header span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--sl-color-text);
+    line-height: 1;
+  }
+
+  .detail-title {
+    font-size: 1.25rem;
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
+  }
+
+  .detail-description {
+    font-size: 1.25rem;
+    color: var(--sl-color-text);
+    font-weight: 600;
+  }
+
+  .detail-section {
+    margin-top: 1.25rem;
+  }
+
+  .detail-section fieldset {
+    border: 1px solid var(--sl-color-green);
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  .detail-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sl-color-green);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  .detail-section-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 0;
+    color: var(--sl-color-gray-2);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scrollbar personalizado */
+  .search-results::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .search-results::-webkit-scrollbar-track {
+    background: var(--sl-color-gray-6);
+    border-radius: 4px;
+  }
+
+  .search-results::-webkit-scrollbar-thumb {
+    background: var(--sl-color-gray-4);
+    border-radius: 4px;
+  }
+
+  .search-results::-webkit-scrollbar-thumb:hover {
+    background: var(--sl-color-gray-3);
+  }
+</style>
+
+<script>
+  import { errorCodes, type CodeError } from "../db/catalog_errors_api";
+
+  const searchInput = document.querySelector<HTMLInputElement>(
+    "#error-search-input",
+  );
+
+  // Función para buscar códigos de error
+  function searchErrorCodes(query: string) {
+    if (!query.trim()) {
+      return [];
+    }
+
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return errorCodes.filter((error) => {
+      const codeMatch = error.code.toLowerCase().includes(normalizedQuery);
+      const descMatch = error.description
+        .toLowerCase()
+        .includes(normalizedQuery);
+      return codeMatch || descMatch;
+    });
+  }
+
+  // Función para renderizar resultados
+  function renderResults(results: CodeError[]) {
+    const resultsContainer =
+      document.querySelector<HTMLDivElement>("#search-results");
+
+    if (!resultsContainer) return;
+
+    resultsContainer.classList.remove("hidden");
+
+    if (results.length === 0) {
+      resultsContainer.innerHTML =
+        '<div class="no-results"><p>No se encontraron resultados</p></div>';
+      return;
+    }
+
+    resultsContainer.innerHTML = results
+      .map(
+        (error) => `
+      <div class="result-item" data-code="${error.code}">
+        <span class="result-code">${error.code}</span>
+        <span class="result-description">${error.title}</span>
+      </div>
+    `,
+      )
+      .join("");
+
+    // Agregar event listeners a los resultados
+    resultsContainer.querySelectorAll(".result-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const code = item.getAttribute("data-code");
+        resultsContainer.classList.add("hidden");
+        const error = errorCodes.find((e) => e.code === code);
+        if (!error) return;
+        if (searchInput) searchInput.value = error.code;
+        showErrorDetails(error);
+      });
+    });
+  }
+
+  // Función para mostrar detalles del error
+  function showErrorDetails(error: CodeError) {
+    const detailsContainer =
+      document.querySelector<HTMLDivElement>("#error-details");
+
+    if (!detailsContainer) return;
+
+    detailsContainer.innerHTML = `
+      <div class="detail-header">
+        <span>${error.http_code}</span>
+        <p class="detail-code">${error.code}</p>
+      </div>
+      <p class="detail-title">${error.title}</p>
+      <p class="detail-description">${error.description}</p>
+      <div class="detail-section">
+        <fieldset>
+          <legend class="detail-section-title">Solución</legend>
+          <p class="detail-section-content">${error.solution}</p>
+        </fieldset>
+      </div>
+    `;
+
+    detailsContainer.classList.remove("hidden");
+
+    // Scroll suave hacia los detalles
+    detailsContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // Debounce para evitar búsquedas excesivas
+  const debounce = (callback: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return (...args: any[]) => {
+      const later = () => {
+        clearTimeout(timeout);
+        callback(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  const debouncedSearch = debounce((query: string) => {
+    const results = searchErrorCodes(query);
+    renderResults(results);
+
+    // Ocultar detalles si no hay búsqueda
+    if (!query.trim()) {
+      const errorDetails =
+        document.querySelector<HTMLDivElement>("#error-details");
+      const searchResults =
+        document.querySelector<HTMLDivElement>("#search-results");
+
+      if (errorDetails) errorDetails.classList.add("hidden");
+      if (searchResults)
+        searchResults.innerHTML =
+          '<div class="no-results"><p>Escribe un código de error para buscar (ej: E_FPT_ROUTINES_401_001)</p></div>';
+    }
+  }, 700);
+
+  searchInput?.addEventListener("input", (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    debouncedSearch(target.value);
+  });
+
+  // Permitir búsqueda al presionar Enter
+  searchInput?.addEventListener("keypress", (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      const query = (e.target as HTMLInputElement).value;
+      const results = searchErrorCodes(query);
+      if (results.length === 1) {
+        showErrorDetails(results[0]);
+      }
+    }
+  });
+</script>

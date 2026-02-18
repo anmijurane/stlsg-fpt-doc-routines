@@ -1,0 +1,595 @@
+---
+
+---
+
+<div class="exercise-search-container">
+  <!-- Filtro por tipo de rutina (radio buttons) -->
+  <fieldset class="filter-fieldset" id="type-routine-filter">
+    <legend class="filter-legend">Filtrar por tipo de rutina</legend>
+    <div class="filter-options">
+      <label class="radio-label">
+        <input type="radio" name="type_routine" value="all" checked />
+        <span class="radio-custom"></span>
+        Todos
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="type_routine" value="Peso integrado" />
+        <span class="radio-custom"></span>
+        Peso integrado
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="type_routine" value="Funcional" />
+        <span class="radio-custom"></span>
+        Funcional
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="type_routine" value="Cardio" />
+        <span class="radio-custom"></span>
+        Cardio
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="type_routine" value="Circuito Express" />
+        <span class="radio-custom"></span>
+        Circuito Express
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="type_routine" value="Poleas" />
+        <span class="radio-custom"></span>
+        Poleas
+      </label>
+      <label class="radio-label">
+        <input
+          type="radio"
+          name="type_routine"
+          value="Funcional/Circuito Express"
+        />
+        <span class="radio-custom"></span>
+        Funcional / Circuito Express
+      </label>
+    </div>
+  </fieldset>
+
+  <!-- Buscador de texto -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="exercise-search-input"
+      class="search-input"
+      placeholder="Buscar ejercicio por nombre o grupo muscular..."
+      autocomplete="off"
+    />
+    <svg
+      class="search-icon"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </div>
+
+  <!-- Resultados -->
+  <div id="exercise-search-results" class="search-results">
+    <div class="no-results">
+      <p>Escribe el nombre del ejercicio para buscar (ej: Press de Hombro)</p>
+    </div>
+  </div>
+
+  <!-- Detalle del ejercicio seleccionado -->
+  <div id="exercise-details" class="exercise-details hidden">
+    <!-- Los detalles se mostrarán aquí dinámicamente -->
+  </div>
+</div>
+
+<style is:global>
+  .exercise-search-container {
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  /* ── Filtro de tipo de rutina ── */
+  .filter-fieldset {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--sl-color-bg-sidebar);
+  }
+
+  .filter-legend {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--sl-color-text-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0 0.5rem;
+  }
+
+  .filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem 1.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    color: var(--sl-color-text);
+    user-select: none;
+    transition: color 0.2s ease;
+    margin: 0;
+  }
+
+  .radio-label:hover {
+    color: var(--sl-color-text-accent);
+  }
+
+  .radio-label input[type="radio"] {
+    display: none;
+  }
+
+  .radio-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--sl-color-gray-3);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease;
+  }
+
+  .radio-custom::after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background-color: var(--sl-color-text-accent);
+    transform: scale(0);
+    transition: transform 0.2s ease;
+  }
+
+  .radio-label input[type="radio"]:checked + .radio-custom {
+    border-color: var(--sl-color-text-accent);
+  }
+
+  .radio-label input[type="radio"]:checked + .radio-custom::after {
+    transform: scale(1);
+  }
+
+  /* ── Buscador (reutiliza tokens del sistema) ── */
+  .exercise-search-container .search-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .exercise-search-container .search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    font-size: 1rem;
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    color: var(--sl-color-text);
+    transition: all 0.2s ease;
+  }
+
+  .exercise-search-container .search-input:focus {
+    outline: none;
+    border-color: var(--sl-color-text-accent);
+    box-shadow: 0 0 0 3px rgba(136, 58, 234, 0.1);
+  }
+
+  .exercise-search-container .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sl-color-gray-3);
+    pointer-events: none;
+  }
+
+  /* ── Resultados ── */
+  .exercise-search-container .search-results {
+    max-height: 380px;
+    overflow-y: auto;
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .exercise-search-container .search-results.hidden {
+    display: none;
+  }
+
+  .exercise-search-container .result-item {
+    border-bottom: 1px solid var(--sl-color-gray-2);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .exercise-search-container .result-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+    border-bottom: 1px solid var(--sl-color-text-accent);
+  }
+
+  .exercise-search-container .result-code {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--sl-color-text-accent);
+    font-family: monospace;
+    min-width: 7rem;
+  }
+
+  .exercise-search-container .result-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--sl-color-text);
+    flex: 1;
+  }
+
+  .exercise-search-container .result-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background-color: rgba(136, 58, 234, 0.15);
+    color: var(--sl-color-text-accent);
+    white-space: nowrap;
+  }
+
+  .exercise-search-container .no-results {
+    padding: 2rem;
+    text-align: center;
+    color: var(--sl-color-gray-3);
+  }
+
+  /* ── Detalle ── */
+  .exercise-details {
+    margin-top: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(136, 58, 234, 0.1) 0%,
+      rgba(58, 134, 234, 0.05) 100%
+    );
+    border: 1px solid var(--sl-color-text-accent);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    animation: exerciseFadeIn 0.3s ease;
+  }
+
+  .exercise-details.hidden {
+    display: none;
+  }
+
+  .exercise-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+
+  .exercise-detail-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sl-color-text);
+    line-height: 1.2;
+  }
+
+  .exercise-detail-id-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .exercise-detail-id {
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
+  }
+
+  .copy-id-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: 1px solid var(--sl-color-text-accent);
+    border-radius: 0.375rem;
+    color: var(--sl-color-text-accent);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+  }
+
+  .copy-id-btn:hover {
+    background-color: rgba(136, 58, 234, 0.15);
+  }
+
+  .copy-id-btn.copied {
+    border-color: var(--sl-color-green);
+    color: var(--sl-color-green);
+  }
+
+  .exercise-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .meta-chip.muscle {
+    background-color: rgba(58, 234, 136, 0.12);
+    color: var(--sl-color-green);
+    border: 1px solid rgba(58, 234, 136, 0.3);
+  }
+
+  .meta-chip.routine {
+    background-color: rgba(136, 58, 234, 0.12);
+    color: var(--sl-color-text-accent);
+    border: 1px solid rgba(136, 58, 234, 0.3);
+  }
+
+  @keyframes exerciseFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scrollbar personalizado */
+  .exercise-search-container .search-results::-webkit-scrollbar {
+    width: 8px;
+  }
+  .exercise-search-container .search-results::-webkit-scrollbar-track {
+    background: var(--sl-color-gray-6);
+    border-radius: 4px;
+  }
+  .exercise-search-container .search-results::-webkit-scrollbar-thumb {
+    background: var(--sl-color-gray-4);
+    border-radius: 4px;
+  }
+  .exercise-search-container .search-results::-webkit-scrollbar-thumb:hover {
+    background: var(--sl-color-gray-3);
+  }
+</style>
+
+<script>
+  import { exercise } from "../db/catalog_exercises_api";
+
+  type Exercise = (typeof exercise)[number];
+
+  const searchInput = document.querySelector<HTMLInputElement>(
+    "#exercise-search-input",
+  );
+  const filterFieldset = document.querySelector<HTMLFieldSetElement>(
+    "#type-routine-filter",
+  );
+
+  let activeTypeFilter = "all";
+
+  // ── Filtrar + Buscar ──
+  function getFilteredExercises(query: string): Exercise[] {
+    let results = exercise;
+
+    // Filtro por tipo de rutina
+    if (activeTypeFilter !== "all") {
+      results = results.filter((ex) => ex.type_routine === activeTypeFilter);
+    }
+
+    // Filtro por texto
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      results = results.filter((ex) => {
+        return (
+          ex.name.toLowerCase().includes(q) ||
+          ex.muscle_group.toLowerCase().includes(q) ||
+          ex.id.toLowerCase().includes(q)
+        );
+      });
+    }
+
+    return results;
+  }
+
+  // ── Renderizar resultados ──
+  function renderResults(results: Exercise[]) {
+    const container = document.querySelector<HTMLDivElement>(
+      "#exercise-search-results",
+    );
+    if (!container) return;
+
+    container.classList.remove("hidden");
+
+    if (results.length === 0) {
+      container.innerHTML =
+        '<div class="no-results"><p>No se encontraron resultados</p></div>';
+      return;
+    }
+
+    container.innerHTML = results
+      .map(
+        (ex) => `
+        <div class="result-item" data-id="${ex.id}">
+          <span class="result-code">${ex.id}</span>
+          <span class="result-name">${ex.name}</span>
+          <span class="result-badge">${ex.type_routine}</span>
+        </div>`,
+      )
+      .join("");
+
+    container.querySelectorAll(".result-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("data-id");
+        const ex = exercise.find((e) => e.id === id);
+        if (!ex) return;
+        if (searchInput) searchInput.value = ex.name;
+        container.classList.add("hidden");
+        showExerciseDetails(ex);
+      });
+    });
+  }
+
+  // ── Mostrar detalle ──
+  function showExerciseDetails(ex: Exercise) {
+    const detailsContainer =
+      document.querySelector<HTMLDivElement>("#exercise-details");
+    if (!detailsContainer) return;
+
+    detailsContainer.innerHTML = `
+      <div class="exercise-detail-header">
+        <div>
+          <p class="exercise-detail-title">${ex.name}</p>
+          <div class="exercise-detail-id-wrapper">
+            <span class="exercise-detail-id">${ex.id}</span>
+            <button class="copy-id-btn" data-copy-id="${ex.id}" title="Copiar ID">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              Copiar ID
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="exercise-detail-meta">
+        <span class="meta-chip muscle">🏋️ ${ex.muscle_group}</span>
+        <span class="meta-chip routine">⚡ ${ex.type_routine}</span>
+      </div>
+    `;
+
+    detailsContainer.classList.remove("hidden");
+
+    // Copiar al portapapeles
+    const copyBtn =
+      detailsContainer.querySelector<HTMLButtonElement>(".copy-id-btn");
+    copyBtn?.addEventListener("click", async () => {
+      const id = copyBtn.getAttribute("data-copy-id");
+      if (!id) return;
+      try {
+        await navigator.clipboard.writeText(id);
+        copyBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          ¡Copiado!
+        `;
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copiar ID
+          `;
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      } catch {
+        // Fallback para navegadores sin clipboard API
+        const textarea = document.createElement("textarea");
+        textarea.value = id;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy", true, "¡Copiado!");
+        document.body.removeChild(textarea);
+        copyBtn.textContent = "¡Copiado!";
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.textContent = "Copiar ID";
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      }
+    });
+
+    detailsContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // ── Debounce ──
+  const debounce = (callback: Function, wait: number) => {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: any[]) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => callback(...args), wait);
+    };
+  };
+
+  const triggerSearch = () => {
+    const query = searchInput?.value ?? "";
+    const results = getFilteredExercises(query);
+    renderResults(results);
+
+    if (!query.trim() && activeTypeFilter === "all") {
+      const details =
+        document.querySelector<HTMLDivElement>("#exercise-details");
+      const resultsContainer = document.querySelector<HTMLDivElement>(
+        "#exercise-search-results",
+      );
+      if (details) details.classList.add("hidden");
+      if (resultsContainer)
+        resultsContainer.innerHTML =
+          '<div class="no-results"><p>Escribe el nombre del ejercicio para buscar (ej: Press de Hombro)</p></div>';
+    }
+  };
+
+  const debouncedSearch = debounce(triggerSearch, 400);
+
+  // ── Listeners ──
+  searchInput?.addEventListener("input", () => debouncedSearch());
+
+  searchInput?.addEventListener("keypress", (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      const results = getFilteredExercises(searchInput.value);
+      if (results.length === 1) {
+        showExerciseDetails(results[0]);
+      }
+    }
+  });
+
+  // Cambio de radio button => re-buscar
+  filterFieldset?.addEventListener("change", (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    if (target.name === "type_routine") {
+      activeTypeFilter = target.value;
+      triggerSearch();
+    }
+  });
+</script>

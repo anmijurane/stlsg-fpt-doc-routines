@@ -1,23 +1,54 @@
-# build output
-dist/
-# generated types
+# Dependencies
 .astro/
-
-# dependencies
 node_modules/
+bower_components/
 
-# logs
+# Build output
+dist/
+build/
+out/
+
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-
-# environment variables
+# Environment variables
 .env
 .env.production
+.env.local
+.env.*.local
 
-# macOS-specific files
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Operating System generated files
+
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 
-package-lock.json
+# Thumbnails
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Other
+*.bak
+*.orig

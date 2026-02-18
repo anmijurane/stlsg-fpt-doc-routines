@@ -16,8 +16,20 @@ const CORS_ACTION_ALLOWED_HEADERS = 'Content-Type, Authorization, X-CSRF-Token';
 const CORS_ACTION_ALLOW_CREDENTIALS = 'true';
 
 export const onRequest = defineMiddleware(async (context, next) => {
+
+  // if (import.meta.env.MODE === 'development') {
+  //   return next();
+  // }
+
   const { url, request, cookies, redirect } = context;
   const pathname = url.pathname;
+  const slug = pathname.replace(/^\/|\/$/g, '');
+
+  if (slug.startsWith('api-docs')) {
+    console.log('api-docs', { slug });
+    return next();
+  }
+
   const method = request.method;
   const requestOrigin = request.headers.get('Origin'); // Origen de la solicitud del navegador
 
@@ -81,8 +93,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (isAuthenticated) {
     try {
       const slug = pathname.replace(/^\/|\/$/g, '');
+      console.log('slug', { slug });
       const entry = await getEntry('docs', slug);
-      console.log(entry?.data);
       const role = sessionToken?.split('.')[2];
       if (entry && entry?.data.isPrivate && role !== '465') {
         return redirect('/config/401-unauthorized');

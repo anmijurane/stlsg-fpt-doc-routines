@@ -1,0 +1,446 @@
+---
+
+---
+
+<div class="club-search-container">
+  <!-- Buscador de texto -->
+  <div class="search-wrapper">
+    <input
+      type="text"
+      id="club-search-input"
+      class="search-input"
+      placeholder="Buscar club por ID, nombre o estado (ej: Cimatario, Queretaro, 6623005224)..."
+      autocomplete="off"
+    />
+    <svg
+      class="search-icon"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </div>
+
+  <!-- Resultados -->
+  <div id="club-search-results" class="search-results">
+    <div class="no-results">
+      <p>
+        Escribe el ID, nombre o estado del club para buscar (ej: Cimatario,
+        6623005224, Queretaro)
+      </p>
+    </div>
+  </div>
+
+  <!-- Detalle del club seleccionado -->
+  <div id="club-details" class="club-details hidden">
+    <!-- Los detalles se mostrarán aquí dinámicamente -->
+  </div>
+</div>
+
+<style is:global>
+  .club-search-container {
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  /* ── Buscador ── */
+  .club-search-container .search-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .club-search-container .search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 3rem;
+    font-size: 1rem;
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    color: var(--sl-color-text);
+    transition: all 0.2s ease;
+  }
+
+  .club-search-container .search-input:focus {
+    outline: none;
+    border-color: var(--sl-color-text-accent);
+    box-shadow: 0 0 0 3px rgba(136, 58, 234, 0.1);
+  }
+
+  .club-search-container .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sl-color-gray-3);
+    pointer-events: none;
+  }
+
+  /* ── Resultados ── */
+  .club-search-container .search-results {
+    max-height: 380px;
+    overflow-y: auto;
+    background-color: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .club-search-container .search-results.hidden {
+    display: none;
+  }
+
+  .club-search-container .result-item {
+    border-bottom: 1px solid var(--sl-color-gray-2);
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .club-search-container .result-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+    border-bottom: 1px solid var(--sl-color-text-accent);
+  }
+
+  .club-search-container .result-id {
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--sl-color-text-accent);
+    font-family: monospace;
+    min-width: 7rem;
+  }
+
+  .club-search-container .result-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--sl-color-text);
+    flex: 1;
+  }
+
+  .club-search-container .result-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background-color: rgba(136, 58, 234, 0.15);
+    color: var(--sl-color-text-accent);
+    white-space: nowrap;
+  }
+
+  .club-search-container .no-results {
+    padding: 2rem;
+    text-align: center;
+    color: var(--sl-color-gray-3);
+  }
+
+  /* ── Detalle ── */
+  .club-details {
+    margin-top: 1.5rem;
+    background: linear-gradient(
+      135deg,
+      rgba(136, 58, 234, 0.1) 0%,
+      rgba(58, 134, 234, 0.05) 100%
+    );
+    border: 1px solid var(--sl-color-text-accent);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    animation: clubFadeIn 0.3s ease;
+  }
+
+  .club-details.hidden {
+    display: none;
+  }
+
+  .club-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--sl-color-gray-5);
+  }
+
+  .club-detail-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sl-color-text);
+    line-height: 1.2;
+  }
+
+  .club-detail-id-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .club-detail-id {
+    font-family: monospace;
+    font-size: 1rem;
+    color: var(--sl-color-text-accent);
+    font-weight: 600;
+  }
+
+  .club-search-container .copy-id-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: none;
+    border: 1px solid var(--sl-color-text-accent);
+    border-radius: 0.375rem;
+    color: var(--sl-color-text-accent);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 600;
+  }
+
+  .club-search-container .copy-id-btn:hover {
+    background-color: rgba(136, 58, 234, 0.15);
+  }
+
+  .club-search-container .copy-id-btn.copied {
+    border-color: var(--sl-color-green);
+    color: var(--sl-color-green);
+  }
+
+  .club-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .club-meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .club-meta-chip.state {
+    background-color: rgba(58, 234, 136, 0.12);
+    color: var(--sl-color-green);
+    border: 1px solid rgba(58, 234, 136, 0.3);
+  }
+
+  @keyframes clubFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Scrollbar personalizado */
+  .club-search-container .search-results::-webkit-scrollbar {
+    width: 8px;
+  }
+  .club-search-container .search-results::-webkit-scrollbar-track {
+    background: var(--sl-color-gray-6);
+    border-radius: 4px;
+  }
+  .club-search-container .search-results::-webkit-scrollbar-thumb {
+    background: var(--sl-color-gray-4);
+    border-radius: 4px;
+  }
+  .club-search-container .search-results::-webkit-scrollbar-thumb:hover {
+    background: var(--sl-color-gray-3);
+  }
+</style>
+
+<script>
+  import { clubs_gym } from "../db/catalog_clubs_api";
+
+  type Club = (typeof clubs_gym)[number];
+
+  const searchInput =
+    document.querySelector<HTMLInputElement>("#club-search-input");
+
+  // ── Buscar clubs ──
+  function searchClubs(query: string): Club[] {
+    if (!query.trim()) return [];
+
+    const q = query.trim().toLowerCase();
+
+    return clubs_gym.filter((club) => {
+      return (
+        club.id.toLowerCase().includes(q) ||
+        club.name.toLowerCase().includes(q) ||
+        club.state.toLowerCase().includes(q)
+      );
+    });
+  }
+
+  // ── Renderizar resultados ──
+  function renderResults(results: Club[]) {
+    const container = document.querySelector<HTMLDivElement>(
+      "#club-search-results",
+    );
+    if (!container) return;
+
+    container.classList.remove("hidden");
+
+    if (results.length === 0) {
+      container.innerHTML =
+        '<div class="no-results"><p>No se encontraron resultados</p></div>';
+      return;
+    }
+
+    container.innerHTML = results
+      .map(
+        (club) => `
+        <div class="result-item" data-id="${club.id}">
+          <span class="result-id">${club.id}</span>
+          <span class="result-name">${club.name}</span>
+          <span class="result-badge">📍 ${club.state}</span>
+        </div>`,
+      )
+      .join("");
+
+    container.querySelectorAll(".result-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("data-id");
+        const club = clubs_gym.find((c) => c.id === id);
+        if (!club) return;
+        if (searchInput) searchInput.value = club.name;
+        container.classList.add("hidden");
+        showClubDetails(club);
+      });
+    });
+  }
+
+  // ── Mostrar detalle ──
+  function showClubDetails(club: Club) {
+    const detailsContainer =
+      document.querySelector<HTMLDivElement>("#club-details");
+    if (!detailsContainer) return;
+
+    detailsContainer.innerHTML = `
+      <div class="club-detail-header">
+        <div>
+          <p class="club-detail-title">${club.name}</p>
+          <div class="club-detail-id-wrapper">
+            <span class="club-detail-id">${club.id}</span>
+            <button class="copy-id-btn" data-copy-id="${club.id}" title="Copiar ID">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              Copiar ID
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="club-detail-meta">
+        <span class="club-meta-chip state">📍 ${club.state}</span>
+      </div>
+    `;
+
+    detailsContainer.classList.remove("hidden");
+
+    // Copiar al portapapeles
+    const copyBtn =
+      detailsContainer.querySelector<HTMLButtonElement>(".copy-id-btn");
+    copyBtn?.addEventListener("click", async () => {
+      const id = copyBtn.getAttribute("data-copy-id");
+      if (!id) return;
+      try {
+        await navigator.clipboard.writeText(id);
+        copyBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          ¡Copiado!
+        `;
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.innerHTML = `
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            Copiar ID
+          `;
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      } catch {
+        const textarea = document.createElement("textarea");
+        textarea.value = id;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy", true, "¡Copiado!");
+        document.body.removeChild(textarea);
+        copyBtn.textContent = "¡Copiado!";
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.textContent = "Copiar ID";
+          copyBtn.classList.remove("copied");
+        }, 2000);
+      }
+    });
+
+    detailsContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  // ── Debounce ──
+  const debounce = (callback: Function, wait: number) => {
+    let timeout: ReturnType<typeof setTimeout>;
+    return (...args: any[]) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => callback(...args), wait);
+    };
+  };
+
+  const triggerSearch = () => {
+    const query = searchInput?.value ?? "";
+    const results = searchClubs(query);
+    renderResults(results);
+
+    if (!query.trim()) {
+      const details = document.querySelector<HTMLDivElement>("#club-details");
+      const resultsContainer = document.querySelector<HTMLDivElement>(
+        "#club-search-results",
+      );
+      if (details) details.classList.add("hidden");
+      if (resultsContainer)
+        resultsContainer.innerHTML =
+          '<div class="no-results"><p>Escribe el ID, nombre o estado del club para buscar (ej: Cimatario, 6623005224, Queretaro)</p></div>';
+    }
+  };
+
+  const debouncedSearch = debounce(triggerSearch, 400);
+
+  // ── Listeners ──
+  searchInput?.addEventListener("input", () => debouncedSearch());
+
+  searchInput?.addEventListener("keypress", (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      const results = searchClubs(searchInput.value);
+      if (results.length === 1) {
+        showClubDetails(results[0]);
+      }
+    }
+  });
+</script>

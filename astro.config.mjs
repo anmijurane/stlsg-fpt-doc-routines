@@ -6,10 +6,14 @@ import dotenv from 'dotenv';
 import node from '@astrojs/node';
 
 import tailwindcss from '@tailwindcss/vite';
+import starlightOpenAPIPlugin, { openAPISidebarGroups } from 'starlight-openapi';
 
 dotenv.config();
 
 const PORT = Number(process.env.PORT) || 8765;
+
+console.log('openAPISidebarGroups', openAPISidebarGroups);
+
 
 export default defineConfig({
   site: 'https://fpt-routines.sitelseg.mx/',
@@ -32,6 +36,15 @@ export default defineConfig({
       disable404Route: true,
       prerender: false,
       title: 'Planet Fitness',
+      plugins: [starlightOpenAPIPlugin([
+        {
+          base: 'api-docs',
+          schema: './src/swagger/swagger_fpt_api_analytics.yml',
+          sidebar: {
+            label: 'API Analítica'
+          }
+        }
+      ])],
       logo: {
         src: './src/assets/pf_logo.webp',
       },
@@ -93,6 +106,15 @@ export default defineConfig({
           autogenerate: { directory: 'feedback/periods' },
           collapsed: true
         },
+        {
+          label: 'API Diccionario',
+          items: [
+            { label: 'Errores', slug: 'api/diccionario/code_errors' },
+            { label: 'Ejercicios', slug: 'api/diccionario/exercises' },
+            { label: 'Clubs', slug: 'api/diccionario/clubs' }
+          ]
+        },
+        ...openAPISidebarGroups,
       ],
       customCss: ['./src/styles/theme.css'],
       locales: {
