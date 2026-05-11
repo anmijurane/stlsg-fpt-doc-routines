@@ -1,0 +1,47 @@
+---
+title: Despliegue automático del formulario.
+sidebar:
+  label: Historia 1
+  badge:
+    text: Nuevo
+    variant: success
+lastUpdated: 2026-05-08
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+# Historía Dinamica
+Conforme a solicitud del PO se determina que el despliegue automatico del formulario se pondra de forma "dinamica"
+Se iran probando diversas variaciones para encontrar la mejor por lo que se ponen variantes que deberán se descritas.
+
+
+## Variante 1 - Historia de usuario:
+
+**dado** que ya escanee el código QR y estoy dentro de la plataforma de rutinas
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** que el formulario aparezca después de avanzar cierta cantidad de ejercicios o clics (~20)
+
+**para** no interrumpir mi experiencia al inicio de la rutina.
+
+## Criterios de aceptación:
+
+  - El formulario deberá aparecer después de completar entre 2 y 3 ejercicios o ~20 clic lo que ocurra primero.
+  - El tiempo aproximado de aparición deberá ser cercano a 10 minutos.
+  - El trigger deberá poder configurarse posteriormente sin cambios mayores de código.
+  - El formulario deberá mostrarse encima del contenido actual.
+  - El usuario podrá interactuar inmediatamente con el formulario.
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="En progreso" variant="note" />   | Pendiente de aprobar                |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="En progreso" variant="caution" />| Pendiente de aprobar                |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
+
+

@@ -3,30 +3,58 @@ title: Banner informativo de ayuda al final del ejercicio
 sidebar:
   label: Historia 9
   badge:
-    text: Nuevo
-    variant: success
+    text: Modificado
+    variant: tip
 lastUpdated: 2025-07-07
 ---
 
-import { Badge } from '@astrojs/starlight/components';
+import { Badge, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Historia de usuario:
 
-**dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+<Tabs syncKey="diff">
+  <TabItem label="Previa">
+    **dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
 
-**como** usuario/socio de Planet Fitness,
+    **como** usuario/socio de Planet Fitness,
 
-**quiero** ver un mensaje al final de la vista del ejercicio que me recuerde que puedo consultar a un entrenador,
+    **quiero** ver un mensaje al final de la vista del ejercicio que me recuerde que puedo consultar a un entrenador,
 
-**para** sentirme acompañado si tengo dudas durante la ejecución.
+    **para** sentirme acompañado si tengo dudas durante la ejecución.
+  </TabItem>
+  <TabItem label="Actualizada">
+    **dado** que ya seleccione un ejercicio del listado de _"los ejercicios en la rutina"_
+
+    **como** usuario/socio de Planet Fitness,
+
+    ~~**quiero** ver un mensaje al final de la vista del ejercicio que me recuerde que puedo consultar a un entrenador,~~
+
+    **quiero** ver un mensaje <span style="background-color: green">dentro del recuadro de indicaciones</span> del ejercicio que me recuerde que puedo consultar a un entrenador,
+
+    **para** sentirme acompañado si tengo dudas durante la ejecución.
+  </TabItem>
+</Tabs>
 
 ## Criterios de aceptación:
 
-  - El mensaje debe mostrarse en una franja visual al final de la pantalla.
-  - Debe incluir un ícono de pulgar arriba y el texto:
-    > “Si tienes alguna duda, consulta a un entrenador”.
-  - El estilo debe ser amistoso, visible, pero no invasivo.
-  - El banner debe estar siempre presente, sin importar la categoría del ejercicio.
+<Tabs syncKey="diff">
+  <TabItem label="Previa">
+    - El mensaje debe mostrarse en una franja visual al final de la pantalla.
+    - Debe incluir un ícono de pulgar arriba y el texto:
+      > “Si tienes alguna duda, consulta a un entrenador”.
+    - El estilo debe ser amistoso, visible, pero no invasivo.
+    - El banner debe estar siempre presente, sin importar la categoría del ejercicio.
+  </TabItem>
+  <TabItem label="Actualizada">
+    - El mensaje debe mostrarse en ~~una franja visual al final de~~ la pantalla.
+    - Debe incluir ~~un ícono de pulgar arriba y~~ el texto:
+      > “Si tienes alguna duda, consulta a un entrenador”.
+    - El estilo debe ser amistoso, visible, pero no invasivo.
+    - El banner debe estar siempre presente, sin importar la categoría del ejercicio.
+    - <span style="background-color: green">Visualizar dentro de las indicaciones del ejercicio.</span>
+  </TabItem>
+</Tabs>
+
 ## Seguimiento
 
 | Stackeholder |                     Estado                    |             Comentarios             |

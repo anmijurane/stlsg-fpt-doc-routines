@@ -1,0 +1,50 @@
+---
+title: Captura de correo o teléfono.
+sidebar:
+  label: Historia 5
+  badge:
+    text: Nuevo
+    variant: success
+lastUpdated: 2026-05-08
+---
+
+import { Badge } from '@astrojs/starlight/components';
+
+## Historia de usuario:
+
+**dado** que ya se mostro el formularío del perfilamiento demográfico
+
+**como** usuario/socio de Planet Fitness,
+
+**quiero** proporcionar un correo electrónico o teléfono
+
+**para** permitir trazabilidad y perfilamiento exacto como usuario/socio de Planet Fitness.
+
+## Criterios de aceptación:
+
+  * El campo deberá aceptar:
+      * Correos electrónicos
+      * Números telefónicos
+  * El sistema deberá detectar automáticamente el tipo de dato ingresado.
+  * Si contiene “@”, deberá validarse como email.
+  * Si contiene números, deberá validarse como teléfono.
+  * Debe mostrarse mensaje visual cuando el formato sea inválido.
+  * Si el usuario no es invitado:
+      * El campo será opcional.
+      * Los errores no bloquearán el envío.
+  * Si el usuario es invitado:
+      * El campo será obligatorio.
+      * El envío deberá bloquearse si el valor es inválido o vacío.
+
+
+## Seguimiento
+
+| Stackeholder |                     Estado                    |             Comentarios             |
+|--------------|-----------------------------------------------|------------------------------------ |
+| BA           | <Badge text="En progreso" variant="success" />| Pendiente de aprobar                |
+| Bussines     | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Design       | <Badge text="En progreso" variant="caution" />| Pendiente de aprobar                |
+| Dev          | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Desplegado   | <Badge text="Pendiente" variant="caution" />  |                                     |
+| Entregado    | <Badge text="Pendiente" variant="caution" />  |                                     |
+

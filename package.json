@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "stlsg-fpt-doc-routines",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -11,10 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.2.2",
-    "@astrojs/starlight": "^0.34.3",
+    "@astrojs/node": "^10.1.0",
+    "@astrojs/starlight": "^0.39.2",
+    "@astrojs/starlight-tailwind": "^5.0.0",
     "@tailwindcss/vite": "^4.1.7",
-    "astro": "^5.6.1",
+    "astro": "^6.3.1",
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "sharp": "^0.32.5",

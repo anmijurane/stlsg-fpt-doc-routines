@@ -1,0 +1,84 @@
+---
+title: Introducción al Módulo 10
+sidebar:
+  order: 0
+  label: Introducción
+  badge:
+    text: Nuevo
+    variant: success
+lastUpdated: 2026-05-11
+prev: false
+next:
+  label: Módulo 10 | Historia 1
+---
+
+# Vista de rutina
+El módulo de perfilamiento demográfico tiene como finalidad recopilar información estratégica de los usuarios que interactúan con el ecosistema digital de Rutinas de Planet Fitness. La información capturada permitirá construir métricas de comportamiento, segmentación y trazabilidad que ayuden a comprender la adopción de rutinas, el nivel de interacción de los ejercicios y la distribución de usuarios por perfil demográfico y tipo de membresía.
+
+La implementación está diseñada bajo un enfoque de mínima fricción para evitar afectar negativamente la continuidad de uso de las rutinas, priorizando la experiencia del usuario mientras se obtienen datos de valor para análisis operativos y funcionales.
+
+## Objetivo del módulo
+  * Obtener información demográfica relevante de los usuarios.
+  * Generar métricas estadísticas de interacción y segmentación.
+  * Identificar tendencias de uso por rango de edad, género y membresía.
+  * Mejorar la toma de decisiones funcionales mediante datos reales.
+  * Incrementar la trazabilidad de usuarios mediante correo o teléfono.
+  * Mantener una experiencia no intrusiva durante la navegación de rutinas.
+
+## Componentes funcionales
+
+  - Selector de Género: Botones de selección única (Masculino, Femenino, Otro).
+  - Selector de Rango de Edad: Matriz de opciones predefinidas para segmentación generacional.
+  - Selector de Tipo de Membresía: Listado con iconos descriptivos para clasificar el nivel de acceso (Classic, Black Card, Invitado).
+  - Campo de Captura de Contacto: Input alfanumérico opcional para correo electrónico o teléfono.
+  - Acción de Envío: Botón principal de procesamiento de datos.
+
+## Comportamiento esperado
+
+  - El usuario puede continuar utilizando la rutina aun si no completa campos opcionales.
+  - El botón “Enviar” solo debe habilitarse cuando:
+      - Género tenga valor.
+      - Membresía tenga valor.
+      - Invitado tenga email/teléfono válido.
+  - Solo puede existir una selección activa por grupo.
+  - El sistema debe validar dinámicamente email o teléfono.
+  - Los errores de validación no deben bloquear envío cuando el campo es opcional.
+  - El sistema debe conservar la información durante la vigencia de la sesión.
+  - El diseño debe respetar lineamientos visuales de Planet Fitness.
+
+## Elementos visuales clave
+
+Estructura visual
+
+  * Modal o tarjeta centrada.
+  * Fondo en tonos morados institucionales.
+  * Contenedores redondeados.
+  * Botones tipo “pill”.
+  * Diseño mobile-first.
+
+---
+
+Elementos UI relevantes
+
+  - Título principal:
+      * “Completa tu Perfil”
+  - Íconos representativos por sección.
+  - Estados visuales:
+      * Seleccionado
+      * Hover
+      * Deshabilitado
+      * Error
+  - Indicador visual de opción seleccionada en membresía.
+  - Botón CTA principal “Enviar”.
+
+## Posibles mejoras a futuro
+
+  - Aparición inteligente basada en comportamiento.
+  - Formularios progresivos.
+  - Gamificación por completar perfil.
+  - Persistencia multi-dispositivo.
+
+
+## UI Referencia
+
+[Referencia Visual](/design/formulary-more-info/)

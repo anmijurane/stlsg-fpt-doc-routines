@@ -1,3 +1,7 @@
+@layer base, starlight, theme, components, utilities;
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss";
+
 /* Dark mode colors. */
 :root {
   --sl-color-accent-low: #2b2400;
@@ -30,6 +34,15 @@
   --sl-color-gray-6: #f0ebfa;
   --sl-color-gray-7: #f7f5fc;
   --sl-color-black: #ffffff;
+}
+
+.sl-markdown-content>ul li {
+  margin-left: 1.5rem;
+  list-style: inside;
+}
+
+.sl-markdown-content>ul li ul {
+  margin-left: 1.5rem;
 }
 
 .hero img {
