@@ -84,7 +84,7 @@ export default defineConfig({
             { label: 'Disclamer', collapsed: true, items: [{ autogenerate: { directory: 'design/disclamer', collapsed: true } }] },
             { label: 'Nivel de rutina', collapsed: true, items: [{ autogenerate: { directory: 'design/routine-level', collapsed: true } }] },
             { label: 'Detalle del ejercicio', collapsed: true, items: [{ autogenerate: { directory: 'design/exercise-detail', collapsed: true } }] },
-            { label: 'Video ejecución', collapsed: true, items: [{ autogenerate: { directory: 'design/video-exercise', collapsed: true } }] },
+            { label: 'Formulario Demográfico', collapsed: true, items: [{ autogenerate: { directory: 'design/formulary-more-info', collapsed: true } }] },
           ],
           collapsed: true
         },
