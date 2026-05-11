@@ -16,16 +16,18 @@ import { Badge } from '@astrojs/starlight/components';
 
 # Vista a alto nivel
 
-| Nº | Módulo                           | Descripción breve                                            | HU Totales | Proceso                                      |
-| -- | -------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------- |
-| 1  | **Identificación de Club**       | Detectar club vía QR y registrar acceso inicial              | **4 HU**   | <Badge text="Negocio" variant="success" />   |
-| 2  | **Exploración de Rutinas**       | Selección de categoría y nivel de rutina                     | **4 HU**   | <Badge text="Negocio" variant="note" />      |
-| 3  | **Pantalla Informativa**         | Mensaje previo con instrucciones y disclaimer                | **3 HU**   | <Badge text="BACKLOG" variant="caution" />   |
-| 4  | **Vista de Rutina**              | Rutinas divididas por días y ejercicios                      | **5 HU**   | <Badge text="BACKLOG" variant="caution" />   |
-| 5  | **Detalle del Ejercicio**        | Información completa, imágenes, video, check                 | **4 HU**   | <Badge text="BACKLOG" variant="caution" />   |
-| 6  | **Reproducción de Video**        | Video guía del ejercicio y mensaje de apoyo                  | **3 HU**   | <Badge text="BACKLOG" variant="caution" />   |
-| 7  | **Retroalimentación y Métricas** | Feedback del usuario + métricas de uso                       | **9 HU**   | <Badge text="BACKLOG" variant="caution" />   |
-| 8  | **Progreso Local**               | Gestión de checks en ejercicios (almacenado en localStorage) | **4 HU**   | <Badge text="BACKLOG" variant="caution" />   |
+| Nº | Módulo                                   | Descripción breve                                            | HU Totales | Proceso                                      |
+| -- | ---------------------------------------- | ------------------------------------------------------------ | ---------- | -------------------------------------------- |
+| 1  | **Identificación de Club**               | Detectar club vía QR y registrar acceso inicial              | **4 HU**   | <Badge text="Entregado" variant="success" /> |
+| 2  | **Exploración de Rutinas**               | Selección de categoría y nivel de rutina                     | **4 HU**   | <Badge text="Entregado" variant="success" /> |
+| 3  | **Pantalla Informativa**                 | Mensaje previo con instrucciones y disclaimer                | **3 HU**   | <Badge text="Entregado" variant="success" /> |
+| 4  | **Vista de Rutina**                      | Rutinas divididas por días y ejercicios                      | **5 HU**   | <Badge text="Entregado" variant="success" /> |
+| 5  | **Detalle del Ejercicio**                | Información completa, imágenes, video, check                 | **4 HU**   | <Badge text="Entregado" variant="success" /> |
+| 6  | **Reproducción de Video**                | Video guía del ejercicio y mensaje de apoyo                  | **3 HU**   | <Badge text="Entregado" variant="success" /> |
+| 7  | **Progreso Local**                       | Gestión de checks en ejercicios (almacenado en localStorage) | **4 HU**   | <Badge text="Entregado" variant="success" /> |
+| 8  | **Retroalimentación y Métricas**         | Feedback del usuario + métricas de uso                       | **7 HU**   | <Badge text="Entregado" variant="success" /> |
+| 9  | **Disclaimer Legal de Uso**              | Pantalla legal posteríor al escanneo                         | **1 HU**   | <Badge text="Entregado" variant="success" /> |
+| 10 | **Perfilamiento Demográfico de Usuario** | Perfilamiento demográfico para recopilar información         | **8 HU**   | <Badge text="BACKLOG" variant="caution" />   |
 
 # Listado de Módulos y Historias de Usuario
 
@@ -97,3 +99,17 @@ import { Badge } from '@astrojs/starlight/components';
 - **HU 6** - Medir tiempo de navegación por pantalla
 - **HU 7** - Identificar las secciones o rutinas más visitadas
 
+---
+
+## Módulo 9: Disclaimer Legal de Uso
+- **HU 1** - Mostrar disclaimer legal obligatorio al iniciar la plataforma
+
+## Módulo 10: Perfilamiento Demográfico de Usuario
+- **HU 1** - Despliegue automático del formulario
+- **HU 2** - Selección de género
+- **HU 3** - Selección de rango de edad
+- **HU 4** - Selección de tipo de membresía
+- **HU 5** - Captura de correo o teléfono
+- **HU 6** - Persistencia de información de sesión
+- **HU 7** - Validación de formulario
+- **HU 8** - Gestión futura de términos y condiciones
