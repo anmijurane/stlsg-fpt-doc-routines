@@ -28,11 +28,7 @@
     </svg>
   </div>
 
-  <div id="search-results" class="search-results">
-    <div class="no-results">
-      <p>Escribe un código de error para buscar (ej: E_FPT_ROUTINES_401_001)</p>
-    </div>
-  </div>
+  <div id="search-results" class="search-results"></div>
 
   <div id="error-details" class="error-details hidden">
     <!-- Los detalles se mostrarán aquí dinámicamente -->
@@ -242,7 +238,7 @@
   // Función para buscar códigos de error
   function searchErrorCodes(query: string) {
     if (!query.trim()) {
-      return [];
+      return errorCodes;
     }
 
     const normalizedQuery = query.trim().toLowerCase();
@@ -339,25 +335,15 @@
   const debouncedSearch = debounce((query: string) => {
     const results = searchErrorCodes(query);
     renderResults(results);
-
-    // Ocultar detalles si no hay búsqueda
-    if (!query.trim()) {
-      const errorDetails =
-        document.querySelector<HTMLDivElement>("#error-details");
-      const searchResults =
-        document.querySelector<HTMLDivElement>("#search-results");
-
-      if (errorDetails) errorDetails.classList.add("hidden");
-      if (searchResults)
-        searchResults.innerHTML =
-          '<div class="no-results"><p>Escribe un código de error para buscar (ej: E_FPT_ROUTINES_401_001)</p></div>';
-    }
   }, 700);
 
   searchInput?.addEventListener("input", (e: Event) => {
     const target = e.target as HTMLInputElement;
     debouncedSearch(target.value);
   });
+
+  // ── Mostrar todos los errores al cargar la página ──
+  renderResults(errorCodes);
 
   // Permitir búsqueda al presionar Enter
   searchInput?.addEventListener("keypress", (e: KeyboardEvent) => {

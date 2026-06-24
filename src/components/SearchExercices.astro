@@ -76,11 +76,7 @@
   </div>
 
   <!-- Resultados -->
-  <div id="exercise-search-results" class="search-results">
-    <div class="no-results">
-      <p>Escribe el nombre del ejercicio para buscar (ej: Press de Hombro)</p>
-    </div>
-  </div>
+  <div id="exercise-search-results" class="search-results"></div>
 
   <!-- Detalle del ejercicio seleccionado -->
   <div id="exercise-details" class="exercise-details hidden">
@@ -556,24 +552,15 @@
     const query = searchInput?.value ?? "";
     const results = getFilteredExercises(query);
     renderResults(results);
-
-    if (!query.trim() && activeTypeFilter === "all") {
-      const details =
-        document.querySelector<HTMLDivElement>("#exercise-details");
-      const resultsContainer = document.querySelector<HTMLDivElement>(
-        "#exercise-search-results",
-      );
-      if (details) details.classList.add("hidden");
-      if (resultsContainer)
-        resultsContainer.innerHTML =
-          '<div class="no-results"><p>Escribe el nombre del ejercicio para buscar (ej: Press de Hombro)</p></div>';
-    }
   };
 
   const debouncedSearch = debounce(triggerSearch, 400);
 
   // ── Listeners ──
   searchInput?.addEventListener("input", () => debouncedSearch());
+
+  // ── Mostrar todos los ejercicios al cargar la página ──
+  triggerSearch();
 
   searchInput?.addEventListener("keypress", (e: KeyboardEvent) => {
     if (e.key === "Enter") {

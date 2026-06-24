@@ -30,14 +30,7 @@
   </div>
 
   <!-- Resultados -->
-  <div id="club-search-results" class="search-results">
-    <div class="no-results">
-      <p>
-        Escribe el ID, nombre o estado del club para buscar (ej: Cimatario,
-        6623005224, Queretaro)
-      </p>
-    </div>
-  </div>
+  <div id="club-search-results" class="search-results"></div>
 
   <!-- Detalle del club seleccionado -->
   <div id="club-details" class="club-details hidden">
@@ -278,9 +271,8 @@
 
   // ── Buscar clubs ──
   function searchClubs(query: string): Club[] {
-    if (!query.trim()) return [];
-
     const q = query.trim().toLowerCase();
+    if (!q) return clubs_gym;
 
     return clubs_gym.filter((club) => {
       return (
@@ -417,23 +409,15 @@
     const query = searchInput?.value ?? "";
     const results = searchClubs(query);
     renderResults(results);
-
-    if (!query.trim()) {
-      const details = document.querySelector<HTMLDivElement>("#club-details");
-      const resultsContainer = document.querySelector<HTMLDivElement>(
-        "#club-search-results",
-      );
-      if (details) details.classList.add("hidden");
-      if (resultsContainer)
-        resultsContainer.innerHTML =
-          '<div class="no-results"><p>Escribe el ID, nombre o estado del club para buscar (ej: Cimatario, 6623005224, Queretaro)</p></div>';
-    }
   };
 
   const debouncedSearch = debounce(triggerSearch, 400);
 
   // ── Listeners ──
   searchInput?.addEventListener("input", () => debouncedSearch());
+
+  // ── Mostrar todos los clubs al cargar la página ──
+  triggerSearch();
 
   searchInput?.addEventListener("keypress", (e: KeyboardEvent) => {
     if (e.key === "Enter") {
