@@ -106,6 +106,27 @@ const errorCodes: CodeError[] = [
     "solution": "Identifica que el emoji sea correcto: happy neutral sad"
   },
   {
+    "code": "E_FPT_ROUTINES_400_014",
+    "http_code": 400,
+    "title": "emoji no valido",
+    "description": "El emoji no es valido",
+    "solution": "Identifica que el emoji sea correcto: happy neutral sad"
+  },
+  {
+    "code": "E_FPT_ROUTINES_400_015",
+    "http_code": 400,
+    "title": "gender no valido",
+    "description": "El gender no es valido",
+    "solution": "Identifica que el gender sea correcto: male female other"
+  },
+  {
+    "code": "E_FPT_ROUTINES_400_016",
+    "http_code": 400,
+    "title": "emoji no valido",
+    "description": "El emoji no es valido",
+    "solution": "Identifica que el emoji sea correcto: happy neutral sad"
+  },
+  {
     "code": "E_FPT_ROUTINES_500_001",
     "http_code": 500,
     "title": "Rol incorrecto",
