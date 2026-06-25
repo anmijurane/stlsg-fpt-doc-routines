@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: FPT Routines Analytics API
-  version: 1.0.2
+  version: 1.1.0
   description: API de analítica para interacciones, emojis y comentarios del portal de rutinas.
 
 servers:
@@ -330,6 +330,358 @@ components:
         - pagination
         - notifications
 
+    # ---------- COMMON FILTER REQUEST ----------
+
+    CommonFilterRequest:
+      type: object
+      properties:
+        club_id:
+          type: string
+          nullable: true
+          example: 236a7d40af
+        timestamp:
+          $ref: "#/components/schemas/DateRange"
+        pagination:
+          $ref: "#/components/schemas/PaginationRequest"
+
+    # ---------- ROUTINE FEEDBACK SUMMARY ----------
+
+    RoutineFeedbackSummaryRequest:
+      allOf:
+        - $ref: "#/components/schemas/CommonFilterRequest"
+
+    FeedbackLikesDislikes:
+      type: object
+      properties:
+        liked:
+          type: integer
+          example: 3
+        disliked:
+          type: integer
+          example: 0
+      required:
+        - liked
+        - disliked
+
+    RoutineFeedbackLevel:
+      type: object
+      properties:
+        day_1:
+          $ref: "#/components/schemas/FeedbackLikesDislikes"
+        day_2:
+          $ref: "#/components/schemas/FeedbackLikesDislikes"
+        day_3:
+          $ref: "#/components/schemas/FeedbackLikesDislikes"
+        day_4:
+          $ref: "#/components/schemas/FeedbackLikesDislikes"
+      required:
+        - day_1
+        - day_2
+        - day_3
+        - day_4
+
+    RoutineFeedbackLevels:
+      type: object
+      properties:
+        level_1:
+          $ref: "#/components/schemas/RoutineFeedbackLevel"
+        level_2:
+          $ref: "#/components/schemas/RoutineFeedbackLevel"
+        level_3:
+          $ref: "#/components/schemas/RoutineFeedbackLevel"
+        level_4:
+          $ref: "#/components/schemas/RoutineFeedbackLevel"
+      required:
+        - level_1
+        - level_2
+        - level_3
+        - level_4
+
+    RoutineFeedbackByRoutineType:
+      type: object
+      properties:
+        adaptation:
+          $ref: "#/components/schemas/RoutineFeedbackLevels"
+        muscle_gain:
+          $ref: "#/components/schemas/RoutineFeedbackLevels"
+        health:
+          $ref: "#/components/schemas/RoutineFeedbackLevels"
+        fat_burning:
+          $ref: "#/components/schemas/RoutineFeedbackLevels"
+      required:
+        - adaptation
+        - muscle_gain
+        - health
+        - fat_burning
+
+    ExerciseFeedbackItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: a1b2c3d4
+        name:
+          type: string
+          example: Press de Hombro
+        liked:
+          type: integer
+          example: 1
+        disliked:
+          type: integer
+          example: 0
+      required:
+        - id
+        - name
+        - liked
+        - disliked
+
+    RoutineFeedbackSummaryItem:
+      type: object
+      properties:
+        club_id:
+          type: string
+          example: 17cf8bbf29
+        club_name:
+          type: string
+          example: Santa Catarina
+        total_feedback:
+          type: integer
+          example: 7
+        by_routine_type:
+          $ref: "#/components/schemas/RoutineFeedbackByRoutineType"
+        by_exercises:
+          type: array
+          items:
+            $ref: "#/components/schemas/ExerciseFeedbackItem"
+      required:
+        - club_id
+        - club_name
+        - total_feedback
+        - by_routine_type
+        - by_exercises
+
+    RoutineFeedbackSummaryResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/RoutineFeedbackSummaryItem"
+        pagination:
+          $ref: "#/components/schemas/PaginationResponse"
+        notifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/ErrorResponse"
+          default: []
+      required:
+        - data
+        - pagination
+        - notifications
+
+    # ---------- DEMOGRAPHICS ----------
+
+    RoutineDemographicsRequest:
+      allOf:
+        - type: object
+          properties:
+            session_id:
+              type: string
+              nullable: true
+              example: ""
+            gender:
+              type: string
+              nullable: true
+              example: ""
+            age_range:
+              type: string
+              nullable: true
+              example: ""
+            membership:
+              type: string
+              nullable: true
+              example: ""
+        - $ref: "#/components/schemas/CommonFilterRequest"
+
+    RoutineDemographicsItem:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "3"
+        session_id:
+          type: string
+          example: "1af6454b-3d9a-49db-8762-42913157b2e3"
+        club_id:
+          type: string
+          example: "7fc28ff6a1"
+        club_name:
+          type: string
+          example: "Zapata Culiacan"
+        gender:
+          type: string
+          example: "male"
+        age_range:
+          type: string
+          example: "25-34"
+        membership:
+          type: string
+          example: "classic-card"
+        contact:
+          type: object
+          properties:
+            phone:
+              type: string
+              example: "5569781245"
+            email:
+              type: string
+              example: ""
+          required:
+            - phone
+            - email
+        created_at:
+          type: string
+          example: "2026-06-15 14:34:16"
+      required:
+        - id
+        - session_id
+        - club_id
+        - club_name
+        - gender
+        - age_range
+        - membership
+        - contact
+        - created_at
+
+    RoutineDemographicsResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/RoutineDemographicsItem"
+        pagination:
+          $ref: "#/components/schemas/PaginationResponse"
+        notifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/ErrorResponse"
+          default: []
+      required:
+        - data
+        - pagination
+        - notifications
+
+    # ---------- DEMOGRAPHICS SUMMARY ----------
+    RoutineDemographicsSummaryRequest:
+      allOf:
+        - $ref: "#/components/schemas/CommonFilterRequest"
+
+    RoutineDemographicsSummaryItem:
+      type: object
+      properties:
+        club_id:
+          type: string
+          example: "17cf8bbf29"
+        club_name:
+          type: string
+          example: "Santa Catarina"
+        total_records:
+          type: integer
+          example: 1
+        by_gender:
+          type: object
+          properties:
+            male:
+              type: integer
+              example: 0
+            female:
+              type: integer
+              example: 1
+            other:
+              type: integer
+              example: 0
+          required:
+            - male
+            - female
+            - other
+        by_age_range:
+          type: object
+          properties:
+            "<18":
+              type: integer
+              example: 0
+            "18-24":
+              type: integer
+              example: 0
+            "25-34":
+              type: integer
+              example: 0
+            "35-44":
+              type: integer
+              example: 1
+            "45-54":
+              type: integer
+              example: 0
+            "55-64":
+              type: integer
+              example: 0
+            "65+":
+              type: integer
+              example: 0
+          required:
+            - "<18"
+            - "18-24"
+            - "25-34"
+            - "35-44"
+            - "45-54"
+            - "55-64"
+            - "65+"
+        by_membership:
+          type: object
+          properties:
+            "classic-card":
+              type: integer
+              example: 1
+            "pf-black-card":
+              type: integer
+              example: 0
+            invite:
+              type: integer
+              example: 0
+          required:
+            - "classic-card"
+            - "pf-black-card"
+            - invite
+      required:
+        - club_id
+        - club_name
+        - total_records
+        - by_gender
+        - by_age_range
+        - by_membership
+
+    RoutineDemographicsSummaryResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/RoutineDemographicsSummaryItem"
+        pagination:
+          $ref: "#/components/schemas/PaginationResponse"
+        notifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/ErrorResponse"
+          default: []
+      required:
+        - data
+        - pagination
+        - notifications
+
+    # ---------- ADD NEW SCHEMAS HERE ----------
+
     # ---------- ERRORES COMUNES ----------
     ErrorResponse:
       type: object
@@ -463,6 +815,90 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/CommentsResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/analytics/routine-feedback/summary:
+    post:
+      summary: Obtener feedback agregado por rutina
+      description: Calcula el promedio de valoraciones (positivas y negativas) por rutina.
+      tags:
+        - Analytics
+      parameters:
+        - $ref: "#/components/parameters/XApiKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RoutineFeedbackSummaryRequest"
+      responses:
+        "200":
+          description: Agregados de feedback por rutina
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoutineFeedbackSummaryResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/analytics/demographics:
+    post:
+      summary: Obtener información demográfica de los usuarios
+      description: Obtiene el desglose demográfico de edad, género y membresía de los usuarios por club.
+      tags:
+        - Analytics
+      parameters:
+        - $ref: "#/components/parameters/XApiKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RoutineDemographicsRequest"
+      responses:
+        "200":
+          description: Datos demográficos de usuarios
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoutineDemographicsResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "500":
+          $ref: "#/components/responses/InternalError"
+
+  /v1/analytics/demographics/summary:
+    post:
+      summary: Obtener un resumen de las interacciones demograficas de usuarios por club
+      description: Obtiene un resumen de las interacciones demograficas de usuarios por club, filtra por rango de fechas, etc.
+      tags:
+        - Analytics
+      parameters:
+        - $ref: "#/components/parameters/XApiKey"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RoutineDemographicsSummaryRequest"
+      responses:
+        "200":
+          description: Datos demográficos de usuarios
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoutineDemographicsSummaryResponse"
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
